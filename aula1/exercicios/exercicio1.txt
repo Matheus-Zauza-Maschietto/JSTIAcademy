@@ -1,0 +1,2 @@
+1 - Sim, javascript é uma linguagem interpretada, portanto não necessita de ser compilada, porem não gera um código fonte, esse tipo de situação ocorre com linguagens dependentes de compilação
+2 - Não, já existem frameworks que fazem com que a linguagem funcione fora do ambiente do navegador

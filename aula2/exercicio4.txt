@@ -1,0 +1,2 @@
+1 - São informações que são armazenadas na memoria, para uso posterior
+2 - "asd" string; 123 inteiro; true boleano
