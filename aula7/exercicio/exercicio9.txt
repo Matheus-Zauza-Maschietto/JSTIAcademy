@@ -1,0 +1,3 @@
+1 - var tem escopo global e é alteravel. let possui escopo local e é alteravel. cons possui escopo local e é inalteravel
+2 - Não, função não são obrigadas a receber parametros
+3 - opção C

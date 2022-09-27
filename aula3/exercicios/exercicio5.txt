@@ -1,0 +1,4 @@
+1 - umaVariavelEmCamelCase 
+2 - por padrão quando uma variavel não é inicializada seu tipo é undefined
+3 - Primitivo e não Primitivo
+4 - Não, javscript é uma linguagem client-side portanto suas execuções usam da maquina do cliente para serem executadas e não do servidor
