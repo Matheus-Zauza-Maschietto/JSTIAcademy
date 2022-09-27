@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function imc(altura, peso){
+            let alturaMetros = (altura/100)*2
+            return peso/alturaMetros;
+        }
+        let nome = prompt("Qual seu nome ?");
+        let peso = prompt("Qual seu peso(Kg) ?");
+        let altura = prompt("Qual sua altura(cm) ?");
+        document.write(`Nome: ${nome} <br>
+                        peso: ${peso} Kg <br>
+                        altura: ${altura} Cm <br>
+                        imc: ${imc(Number(altura), Number(peso))}`);
+    </script>
+</body>
+</html>

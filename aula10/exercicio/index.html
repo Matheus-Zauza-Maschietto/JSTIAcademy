@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function mudaPalavra(palavra){
+            console.log(palavra+" Possui "+palavra.length+" caracteres");
+            let newPalavra = palavra.toUpperCase();
+            console.log("A 3° letra da palavra :"+newPalavra+" é "+newPalavra[3]);
+            newPalavra = newPalavra.slice(0, 3)+newPalavra[3].replace(newPalavra[3], "X")+newPalavra.slice(3, newPalavra.length)
+            return newPalavra
+        }
+        let novaPalavra = mudaPalavra("paralelopipedo")
+        console.log(novaPalavra);
+    </script>
+</body>
+</html>
