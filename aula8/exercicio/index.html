@@ -9,7 +9,7 @@
 <body>
     <script>
         function imc(altura, peso){
-            let alturaMetros = (altura/100)*2
+            let alturaMetros = ((altura*altura)/100)
             return peso/alturaMetros;
         }
         let nome = prompt("Qual seu nome ?");

@@ -1,0 +1,4 @@
+1 - Essa função altera a string, assim fazendo com que alguns caracteres da string sejam substituidos por outros
+2 - Essa função altera a ordem da string, deixando-a em ordem alfabetica
+3 - Não, pois a O.O não é nativa, mas sim integrada através de alguns padrões definidos
+4 - Tem como função criar novos objetos
