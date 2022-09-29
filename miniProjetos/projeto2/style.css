@@ -1,0 +1,52 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --font-cursive: 'Dancing Script', cursive;
+    --cor-tiulo: #daa520;
+    --cor-background: ;
+}
+
+.flex{
+    display: flex;
+}
+
+.center{
+    align-items: center;
+    justify-content: center;
+}
+
+body{
+    background-color: rgb(230, 230, 230);
+}
+
+header h1{
+    font-size: 60px;
+    font-family: 'Dancing Script', cursive;
+    color: #daa520;
+    text-align: center;
+}
+header{
+    margin-top: 50px;
+}
+
+main{
+    height: auto;
+    width: 100vw
+}
+
+ul{
+    width: 100%;
+    align-items: center;
+}
+
+li{
+    margin: 10px;
+    width: 50%;
+    background-color: white;
+    list-style: none;
+    justify-content: center;
+}

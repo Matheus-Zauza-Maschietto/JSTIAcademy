@@ -8,17 +8,31 @@
 </head>
 <script>
     window.onload = function(){
-        function calcula(idProduto, resultado){
-            const preco = document.querySelectorAll(`${idProduto} > li`);
-            const resultado = document.querySelectorAll(`${resultado}`);
-            let total;
+        function calcular(idProduto, resultado){
+            const preco = document.querySelectorAll(`#${idProduto} > li`);
+            const precoResultado = document.querySelector(`#${resultado}`);
+            let total = 0;
             for(let i of preco){
                 total += Number(i.dataset.preco);
             }
+            precoResultado.value = total;
 
         }
+        
+        function removerProduto(id){
+            const lista = document.querySelectorAll(`#${id} > li`)
+
+            for(let produto of lista){
+                produto.addEventListener('click', function(){
+                    produto.remove();
+                    calcular('produtos', 'sum')
+                })
+            }
+        }
+        calcular('produtos', 'sum')
+        removerProduto('produtos')
     }
-    calcula('produtos', 'sum')
+    
 </script>
 <body>
     <ul id="produtos">

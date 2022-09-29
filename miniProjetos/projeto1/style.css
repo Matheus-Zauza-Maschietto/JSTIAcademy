@@ -1,0 +1,54 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.flex{
+    display: flex;
+}
+
+.center{
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+main{
+    flex-direction: column;
+    width: 600px;
+    height: 600px;
+}
+
+h1{
+    font-size: 40px;
+    color: rgb(7, 51, 102);
+}
+
+span{
+    font-size: 100px;
+    color: rgb(45, 71, 5);
+    padding: 20px 0;
+}
+
+div{
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+div>input{
+    width: 30%;
+    height: 40px;
+    background-color: rgb(1, 47, 90);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    border: 2px rgba(0, 0, 0, 0.63) solid;
+}
+
+div>input:focus{
+    border: 2px rgb(112, 179, 218) solid;
+}
+
+
