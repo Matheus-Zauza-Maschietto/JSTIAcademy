@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<script>
+    window.onload = function(){
+    const bnt = document.querySelector('#btn');
+    const txt = document.querySelector('#txt');
+    btn.addEventListener('click', function(){
+        if (txt.dataset.alteravel=='true'){
+            txt.textContent = "ALTERADO"
+        }
+        else{
+            alert("Não alteravel");
+        }
+        
+        })
+    }
+</script>
+<body>
+    <input type="button" value="teste" id="btn">
+    <div data-alteravel="false" id="txt">
+        Lorem ipsum dolor sit amet consectetur adipisicing 
+        elit. Reiciendis accusantium assumenda delectus 
+        recusandae inventore ea obcaecati cumque aliquid 
+        asperiores corporis molestias, repellat 
+        necessitatibus, voluptas libero minus. Ex quibusdam 
+        debitis eveniet!
+    </div>
+</body>
+</html>

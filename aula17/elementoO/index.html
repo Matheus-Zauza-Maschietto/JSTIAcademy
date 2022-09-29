@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Função A.E</title>
+</head>
+<script>
+    window.onload = function(){
+        let produtos = [
+            {descricao: 'biscoito', preco: 30},
+            {descricao: 'mamão', preco: 2},
+            {descricao: 'banana', preco: 54},
+            {descricao: 'bolacha', preco: 8}
+        ]
+        const listaPro = document.querySelector('#lista');
+        const sum = document.querySelector('#total');
+
+        (()=>{
+            // for(let elemento of produtos){
+            //     const filhoLi = document.createElement('li');
+            //     let produtoString = ''
+            //     for(let produto in elemento){
+            //          produtoString += `${elemento[produto]} `
+            //     }
+                
+            //     listaPro.appendChild(filhoLi).textContent = produtoString
+            // }
+            let total = 0
+            for(let elemento of produtos){
+                const filhoLi = document.createElement('li');
+
+                for(let attr in elemento){
+                    if(attr == 'preco'){
+                        listaPro.appendChild(filhoLi).setAttribute('data-preco', elemento[attr])
+                        total += Number(elemento[attr])
+                        
+                    }
+                    else{
+                        listaPro.appendChild(filhoLi).textContent = elemento[attr]
+                    }
+                }
+                sum.value = total.toLocaleString('pt-br', {style: 'currency', currency:'BRL'})
+            }
+        })()
+
+
+    }
+</script>
+<body>
+    <ul id="lista">
+
+    </ul>
+    <input type="text" id="total">
+</body>
+</html>

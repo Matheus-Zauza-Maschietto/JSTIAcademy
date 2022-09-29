@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+
+
+        #SumCase{
+            width: 400px;
+            height: auto;
+            border: 2px black solid;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #SumCase input{
+            width: 50%;
+            height: 30px;
+        }
+        #SumCase h1, #SumCase p{
+            width: 100%;
+            text-align: center;
+        }
+        #reset{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="SumCase">
+        <h1>Somando dois valores</h1>
+        <input type="text" name="sum1" id="sum1" placeholder="Valor 1">
+        <input type="text" name="sum2" id="sum2" placeholder="Valor 2">
+        <p>resultado</p>
+        <input type="text" name="result" id="result" placeholder="Resultado" readonly>
+        <input type="button" value="Resetar" id="reset" name="reset">
+    </div>
+</body>
+</html>

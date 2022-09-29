@@ -6,7 +6,6 @@ window.onload=function(){
         let elementoInput = Number(inputBox.value)
 
         if(elementoInput <= 10 && elementoInput >= 1 && isNaN(elementoInput)===false){
-            outBox.innerHTML = ''
             let txt = ''
             for(let i=1; i<=10; i++){
                 txt += `${elementoInput}x${i}=${elementoInput*i} <br>`

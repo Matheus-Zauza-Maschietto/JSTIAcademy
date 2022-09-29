@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="p-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = function(){
+        const txt = document.querySelector('#produto');
+        const btn = document.querySelector('#cadastrar');
+        const lista = document.querySelector('#lista');
+
+        btn.addEventListener('click', function(){
+            let listaElement = document.createElement('li');
+            lista.appendChild(listaElement).setAttribute('class', 'listaDeFrutas')
+            lista.appendChild(listaElement).textContent = txt.value;
+            
+        })
+    }
+</script>
+<body>
+    <input type="text" name="" id="produto", placeholder="Digite o produto">
+    <input type="button" value="CADASTRAR" id="cadastrar">
+    <ul id="lista">
+
+    </ul>
+</body>
+</html>
