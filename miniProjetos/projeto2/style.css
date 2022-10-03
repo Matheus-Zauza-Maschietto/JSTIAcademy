@@ -25,8 +25,8 @@ body{
 
 header h1{
     font-size: 60px;
-    font-family: 'Dancing Script', cursive;
-    color: #daa520;
+    font-family: var(--font-cursive);
+    color: var(--cor-tiulo);
     text-align: center;
 }
 header{
@@ -35,18 +35,90 @@ header{
 
 main{
     height: auto;
-    width: 100vw
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario{
+    background-color: white;
+    width: 50%;
+    text-align: center;
+}
+
+form{
+    flex-direction: column;
+    align-items: center;
+}
+#new-ask-label{
+    text-align: left;
+    flex-direction: column;
+    align-items: center;
+}
+#new-ask{
+    height: 30px;
+}
+
+#input-ask{
+    width: 70%;
+    height: 40px;
 }
 
 ul{
-    width: 100%;
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
 li{
     margin: 10px;
-    width: 50%;
+    width: 100%;
     background-color: white;
     list-style: none;
     justify-content: center;
+}
+
+.ask{
+    width: 100%;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    min-height: 50px;
+    position: relative;
+}
+
+.ask > h1{
+    width: 85%;
+}
+
+.open-close-box{
+    display: none;
+}
+
+.open-close-label{
+    width: 40px;
+    height: 40px;
+    background-image: url(imgs/OpenCloseDiv.svg);
+    background-size: contain;
+    position: absolute;
+    top: 5px;
+    right: 0px;
+    transition-duration: 0.7s;
+}
+
+.open-close-box:checked+.open-close-label{
+    transform: rotate(45deg);
+    transition-duration: 0.7s;
+}
+
+.open-close-box:checked~.answer{
+    display: block;
+    transition: 1s;
+}
+
+.answer{
+    display: none;
+    width: 100%;
+    margin: 10px;
 }

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let meses = ['janeira', 'fevereiro', 'março', 'abril', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
+        let diaSemana = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sabado']
+        
+        let data = new Date()
+        console.log(meses[data.getMonth()])
+        console.log(diaSemana[data.getDay()])
+        console.log(data.toLocaleDateString('pr-br', {year: 'numeric', month:'2-digit', day:'2-digit'}))
+    </script>
+</body>
+</html>
