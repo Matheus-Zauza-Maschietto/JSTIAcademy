@@ -15,14 +15,44 @@
         
     </header>
     <main class="flex">
-        <div class="formulario">
+        <div class="formulario-div">
             <h2>Faça uma pergunta</h2>
             <form action="" class="flex">
-                            
+                <label for="tittle-ask" class="flex label-column">
+                    <span class="request-label-text">Titulo da pergunta</span>
+                    <input type="text" id="tittle-ask" placeholder="Digite sua pergunta em poucas palavras" required>
+                </label>
+                <label for="new-ask" class="flex label-column">
+                    <span class="request-label-text">Pergunta</span>
+                    <textarea name="pergunta" id="new-ask" placeholder="Digite sua perguna aqui" cols="30" rows="10" required></textarea>
+                </label>
+                <input type="button" value="Enviar Pergunta" id="send-request">
             </form>
         </div>
         <ul id="perguntas" class="flex center">
+            <!--<li class="item flex" data-answered="true">
+                 <div class="ask flex">
+                    <h2>lorem ipsum dolor</h2>
+                    <input type="checkbox" name="open-close" id="0" class="open-close-box">
+                    <label for="0" class="open-close-label"></label>
+                    <div class="answer">
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto nemo ad accusantium modi porro, 
+                            deleniti animi corrupti nihil sit, ut iusto atque, dolorem tempora facere minus. Nisi atque officiis 
+                            quibusdam.
+                        </p>
 
+                         <form action="" class="flex">
+                            <label for="someone-answer" class="flex label-column">
+                                <span id="someone-answer-label">Faça uma resposta</span>
+                                <textarea name="someone-answer" id="someone-answer" cols="30" rows="10" placeholder="Digite uma resposta"></textarea>
+                            </label>
+                            <input type="button" value="Enviar resposta" class="btn">
+                        </form>
+
+                    </div>
+                </div> 
+            </li>-->
         </ul>
     </main>
 </body>

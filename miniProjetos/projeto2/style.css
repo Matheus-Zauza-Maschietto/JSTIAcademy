@@ -6,8 +6,13 @@
 
 :root{
     --font-cursive: 'Dancing Script', cursive;
+    --font-label: verdana, sans-serif;
     --cor-tiulo: #daa520;
     --cor-background: ;
+    --cor-1: #071120;
+    --cor-2: #4C5A6D;
+    --cor-3: #103124;
+    --cor-4: #889691;
 }
 
 .flex{
@@ -20,7 +25,7 @@
 }
 
 body{
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(36, 35, 35);
 }
 
 header h1{
@@ -41,28 +46,48 @@ main{
     margin: auto;
 }
 
-.formulario{
-    background-color: white;
+.formulario-div{
+    background-color: var(--cor-2);
+    color: white;
     width: 100%;
     text-align: center;
+}
+
+h2{
+    font-family: var(--font-label);
+    padding-top: 10px;
 }
 
 form{
     flex-direction: column;
     align-items: center;
 }
-#new-ask-label{
-    text-align: left;
+
+.label-column{
+    align-items: flex-start;
     flex-direction: column;
-    align-items: center;
 }
+
+#tittle-ask{
+    height: 30px;
+    width: 100%;
+}
+
 #new-ask{
     height: 30px;
 }
+.request-label-text{
+    font-family: var(--font-label);
+    margin-top: 20px;
+}
 
-#input-ask{
-    width: 70%;
+#send-request{
     height: 40px;
+    padding: 0 20px;
+    margin: 20px;
+    color: white;
+    background-color: black;
+    border-radius: 15px;
 }
 
 ul{
@@ -89,8 +114,9 @@ li{
     position: relative;
 }
 
-.ask > h1{
+.ask > h2{
     width: 85%;
+    font-size: clamp(18px, 2.5vw, 28px);
 }
 
 .open-close-box{
@@ -109,7 +135,7 @@ li{
 }
 
 .open-close-box:checked+.open-close-label{
-    transform: rotate(45deg);
+    transform: rotate(135deg);
     transition-duration: 0.7s;
 }
 
@@ -123,3 +149,8 @@ li{
     width: 100%;
     margin: 10px;
 }
+
+.answer p{
+    white-space: pre-wrap;
+}
+
