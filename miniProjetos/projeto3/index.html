@@ -11,15 +11,35 @@
 </head>
 <body>
     <main>
-        <div class="flex center input">
+        <h1>Lista de Tarefas</h1>
+        <div class="flex center" id="input">
             <input type="checkbox" id="open-close">
-            <input type="text" class="input-task">
+            <input type="text" id="input-task">
+            <span class="material-symbols-outlined" id="add">
+                done
+            </span>
             <label for="open-close" class="flex center open-close-label">
                 <span class="material-symbols-outlined open-close-svg">
                 add
                 </span>
             </label>
-            
+        </div>
+        <div class="flex center" id="tasks-container">
+            <h2>Tarefas</h2>
+            <ul id="tasks-list">
+               <li class="flex center task-item">
+                    <p>Ir ai mercado</p>
+                    <div class="flex center">
+                        <span class="material-symbols-outlined icon-item" id="trash">
+                            delete
+                        </span>
+                        <span class="material-symbols-outlined icon-item" id="mark-ok">
+                            <!-- check_box -->
+                            check_box_outline_blank
+                        </span>
+                    </div>
+               </li> 
+            </ul>
         </div>
     </main>
 </body>
