@@ -1,0 +1,49 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.flex{
+    display: flex;
+}
+
+.center{
+    align-items: center;
+    justify-content: center;
+}
+
+#open-close{
+    display: none;
+}
+
+.input-task{
+    
+    height: 30px;
+    transform: scaleX(0) translateX(100%);
+    transition-duration: 1s;
+}
+
+.open-close-label{
+    border-radius: 100%;
+}
+
+.open-close-svg{
+    font-size: 38px;
+    font-weight: 600;
+    color: green;
+    transition-duration: 1s;
+}
+
+#open-close:checked+.input-task{
+    width: auto;
+    border: 1px solid black;
+    transform: scaleX(1);
+    transition-duration: 1s;
+}
+
+#open-close:checked~.open-close-label>span{
+    color: red;
+    transform: rotate(135deg);
+    transition-duration: 1s;
+}

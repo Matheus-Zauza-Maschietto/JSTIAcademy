@@ -139,18 +139,18 @@ li{
     transition-duration: 0.7s;
 }
 
-.open-close-box:checked~.answer{
+.open-close-box:checked~.asks-body{
     display: block;
     transition: 1s;
 }
 
-.answer{
+.asks-body{
     display: none;
     width: 100%;
     margin: 10px;
 }
 
-.answer p{
+.asks-body > p{
     white-space: pre-wrap;
 }
 
