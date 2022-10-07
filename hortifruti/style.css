@@ -1,0 +1,111 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --cor1: #328032;
+    --cor2: #fd642d;
+    --font1: verdana, sans-serif;
+}
+
+.flex{
+    display: flex;
+}
+
+.center{
+    align-items: center;
+    justify-content: center;
+}
+
+.column{
+    flex-direction: column;
+}
+
+main, header{
+    width: 80vw;
+    margin: auto;
+}
+
+header{
+    background-color: var(--cor1);
+    height: 100px;
+    border-bottom: 2px #173b17 solid;
+    border-top: 2px #173b17 solid;
+}
+
+h1, h2, li{
+    color: white;
+    width: 100%;
+    padding-left: 14px;
+    font-family: var(--font1);
+}
+
+h1{
+    font-size: 40px;
+}
+
+h2{
+    font-size: 30px;
+    background-color: var(--cor2);
+    border-bottom: 1px #b83302 solid;
+    border-top: 1px #b83302 solid;
+}
+
+ul{
+    list-style: none;
+    background-color: #faf1ed;
+    padding: 2.5px 2.5px 0 0;
+}
+
+.product-sell{
+    width: 99%;
+    color: black;
+    background-color: white;
+    margin: 5px;
+    height: 35px;
+    font-size: 17px;
+    justify-content: flex-start;
+}
+
+.product-sell:hover{
+    color: black;
+    background-color: #ff966f;
+    font-weight: 600;
+}
+
+.cesta{
+    align-items: flex-start;
+    width: 100%;
+}
+
+.new-div{
+    margin-top: 5px
+}
+
+.buy-list{
+    width: 50%;
+}
+
+.totalLabel{
+    height: 40px;
+    width: 30%;
+    background-color: var(--cor1);
+    color: white;
+    font-size: 30px;
+    font-family: var(--font1);
+}
+
+#valorTotal{
+    height: 40px;
+    justify-content: flex-start;
+    width: 70%;
+    background-color: rgb(156, 156, 156);
+    color: white;
+    font-size: 30px;
+    font-family: var(--font1);
+    align-items: flex-start;
+    border: 2px rgba(0, 0, 0, 0.267) solid;
+}
+
