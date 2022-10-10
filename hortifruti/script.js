@@ -61,7 +61,6 @@ window.onload = function(){
     function sumBuyItens(listItens){
         let sumPrice = 0
         for(let elem of listItens){
-            console.log(elem.dataset)
             sumPrice += Number(elem.dataset.value)
         }
         return sumPrice;
