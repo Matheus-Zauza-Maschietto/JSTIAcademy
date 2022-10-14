@@ -19,7 +19,7 @@ export function autenticator(){
         for(let item of users){
             if(item["user"] == UserInput.trim() && item["senha"] == passwordInput.trim()){
                 autenticado = true 
-                window.location.href = `./panel.html`
+                window.location.href = './panel.html'
             }
         }
         if(autenticado === false){
