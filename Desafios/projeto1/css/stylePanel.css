@@ -3,6 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+main{
+    position: relative;
+}
+
 a{
     align-items: center;
     text-decoration: none;
@@ -15,6 +20,10 @@ a{
     display: flex;
 }
 
+.column{
+    flex-direction: column;
+}
+
 .menu{
     height: 100vh;
     width: clamp(150px, 20vw, 350px);
@@ -25,6 +34,10 @@ a{
     flex-direction: column;
     align-items: center;
     width: 100%;
+}
+
+#menu-label, #menu-box{
+    display: none;
 }
 
 li{
@@ -43,3 +56,9 @@ li:hover>a{
     color: black;
     
 }
+
+@import url(menuCardResposivite.css);
+
+@import url(clientCard.css);
+
+
