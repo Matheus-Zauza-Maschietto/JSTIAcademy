@@ -1,71 +1,89 @@
-
 export let clients = [
         {"id": 0, "nome": "João Gustavo", "dataCadastro": "10/02/2004"},
         {"id": 1, "nome": "Mario1", "dataCadastro": "06/05/2019"},
-        {"id": 2, "nome": "Mario2", "dataCadastro": "06/05/2019"},
-        {"id": 3, "nome": "Mario3", "dataCadastro": "06/05/2019"},
-        {"id": 4, "nome": "Mario4", "dataCadastro": "06/05/2019"},
+        {"id": 2, "nome": "Mario2", "dataCadastro": "14/02/2012"},
+        {"id": 3, "nome": "Mario3", "dataCadastro": "18/04/2015"},
+        {"id": 4, "nome": "Mario4", "dataCadastro": "01/08/2019"},
         ]
 
-export function setClientValue(id, idPlace, namePlace, dataPlace){
 
-    if(id!==clients.length){
-        namePlace.setAttribute('reandoly', '')
-        dataPlace.setAttribute('reandoly', '')
-        idPlace.value = clients[id]["id"]
-        namePlace.value = clients[id]["nome"]
-        dataPlace.value = clients[id]["dataCadastro"]
+export function cleanBodyCard(cardEl){
+    while (cardEl.firstChild) {
+        cardEl.removeChild(cardEl.firstChild);
+    }
+}
+
+export function closeCard(MotherDiv, cardExists, alreadyExistsErrorMsg){
+    if(cardExists===true){
+        MotherDiv.remove()
+        return false
     }
     else{
-        namePlace.removeAttribute('readonly')
-        dataPlace.removeAttribute('readonly')
-        namePlace.value = ''
-        dataPlace.value = ''
-        idPlace.value = clients.length
+        alert(alreadyExistsErrorMsg)
+        return true
+    }
+}    
+
+export function setInitialClientValue(idEl, nameEl, dataCadastroEl, clientList){
+    idEl.value = clientList[0]["id"]
+    nameEl.value = clientList[0]["nome"]
+    dataCadastroEl.value = clientList[0]["dataCadastro"]
+}
+
+export function moveClientList(idEl, nameEl, dataCadastroEl, clientList, actualClient, nextClient){
+    console.log(actualClient)
+    if(actualClient+1 >= clientList.length && nextClient === true){
+        alert('Fim da lista de clientes')
+    }
+    else if(actualClient-1 <= -1 && nextClient === false){
+        alert('Fim da lista de clientes')
+    }
+    else{
+        if(nextClient===true){
+            actualClient++
+        }
+        else{
+            actualClient--
+        }
+        idEl.value = clientList[actualClient]['id']
+        nameEl.value = clientList[actualClient]['nome']
+        dataCadastroEl.value = clientList[actualClient]['dataCadastro']  
+    }
+    return actualClient
+}
+
+export function cleanAndCloseToAddClient(nameEl){
+    nameEl.setAttribute('readonly', '')
+}
+
+export function cleanAndOpenToAddClient(idEl, nameEl, dataCadastroEl, clientList){
+    idEl.value = clientList.length
+    nameEl.value = ''
+    nameEl.removeAttribute('readonly', '')
+    dataCadastroEl.value = getData()
+}
+
+export function addNewClient(idEl, nameEl, dataCadastro, clientList, isAdding){
+    if(isAdding===true){
+        if(nameEl.value.trim() != ""){
+            console.log()
+            clientList.push({"id": idEl.value, "nome": nameEl.value.trim(), "dataCadastro": dataCadastro.value})
+            alert(`O cadastro de ${nameEl.value} foi adicionado com sucesso !`)
+            setInitialClientValue(idEl, nameEl, dataCadastro, clientList)
+        }
+        else{
+            alert("Nenhum campo pode ser deixado em branco")
+        }
+    }
+    else{
+        alert('Primeiro clique em "novo" para salvar um novo cliente')
     }
 }
 
-export function passClientRegister(){
-    let nextClient = document.querySelector("#nextClient")
-    let backClient = document.querySelector("#backClient")
-    let idInput = document.querySelector("#identifier")
-    let nomeInput = document.querySelector("#name")
-    let dataInput = document.querySelector("#date")
-    let newClient = document.querySelector("#Novo")
-    let actualId = 0
-    setClientValue(actualId, idInput, nomeInput, dataInput)
-
-    nextClient.addEventListener('click', function(){
-        if(actualId < clients.length-1){
-            actualId++
-        }
-        else{
-            actualId = actualId
-            alert("Fim da lista")
-        }
-        setClientValue(actualId, idInput, nomeInput, dataInput)
-        return actualId
-    })
-    backClient.addEventListener('click', function(){
-        if(actualId > 0){
-            actualId--
-        }
-        else{   
-            actualId = 0
-            alert("Fim da lista")
-        }
-        setClientValue(actualId, idInput, nomeInput, dataInput)
-        return actualId
-    })
-
-    let closeCard = document.querySelector("#closeCard")
-    closeCard.addEventListener("click", function(){
-        closeCard.parentElement.parentElement.remove()
-        bodyHasCard = false
-    })
+function getData(){
+    let data = new Date()
+    return data.toLocaleString('pt-BR', {year: 'numeric', month: '2-digit', day: '2-digit'})
 }
-
-
 
 export function CreateClientCard(bodyDiv){
     let divMae = document.createElement('div')
@@ -113,12 +131,11 @@ export function CreateClientCard(bodyDiv){
         label = document.createElement('label')
         label.setAttribute("for", "date")
         label.setAttribute("class", "flex column cardClientLabel")
-        label.textContent = "Nome"
+        label.textContent = "Data de Cadastro"
             input = document.createElement('input')
             input.setAttribute("type","text")
             input.setAttribute("name","date")
             input.setAttribute("id","date")
-            input.setAttribute("dateformat", "d M y")
             input.setAttribute("readonly", "")
         label.appendChild(input)
         divMae.appendChild(label)
@@ -143,18 +160,17 @@ export function CreateClientCard(bodyDiv){
             btn = document.createElement('input')
             btn.setAttribute("type","button")
             btn.setAttribute("value","Novo")
-            divButtons.appendChild(btn)
+            btn.setAttribute("id","Novo")
+        divButtons.appendChild(btn)
 
             btn = document.createElement('input')
             btn.setAttribute("type","button")
             btn.setAttribute("value","Salvar")
+            btn.setAttribute("id","Salvar")
         divButtons.appendChild(btn)
+
         divMae.appendChild(divButtons)
 
     bodyDiv.appendChild(divMae)
-}
-
-
-function createPassItemInteraction(){
-
+    return true
 }
