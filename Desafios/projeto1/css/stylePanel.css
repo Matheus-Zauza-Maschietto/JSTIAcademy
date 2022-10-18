@@ -59,8 +59,16 @@ li:hover{
     
 }
 
-@import url(menuCardResposivite.css);
-
+#interfaceBody{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+ }
 @import url(clientCard.css);
+@import url(productCard.css);
+
+
 
 

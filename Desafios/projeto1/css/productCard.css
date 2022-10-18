@@ -1,6 +1,6 @@
-.cardClientes{
+.cardProduct{
     width: 400px;
-    height: 310px;
+    height: 360px;
     border: 2px black solid;
     display: flex;
     flex-direction: column;
@@ -8,47 +8,47 @@
     justify-content: center;
 }
 
-#header{
+#header-product{
     width: 80%;
     align-items: center;
     justify-content: space-between;
 }
 
-#header span{
+#header-product span{
     display: block;
     font-size: 25px;
     padding: 10px;
 }
 
-#header h2{
+#header-product h2{
     padding: 10px;
 }
 
-.cardClientLabel{
+.cardProductLabel{
     width: 80%;
-    padding: 10px;
+    padding: 7px;
 }
 
-.cardClientLabel input{
+.cardProductLabel input{
     height: 28px;
 }
 
-.clientButtons{
+.productButtons{
     margin: 10px ;
     height: 30px;
 }
 
-.clientButtons input{
+.productButtons input{
     height: 28px;
     margin: 0 10px;
 }
 
-.clientButtons > div > input{
+.productButtons > div > input{
     margin: 0 5px;
     width: 30px;
 }
 
-.clientButtons > input{
+.productButtons > input{
     width: 70px;
 }
 

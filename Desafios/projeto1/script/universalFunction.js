@@ -1,5 +1,4 @@
-
-export function cleanBodyCard(cardEl){
+export function cleanCardBody(cardEl){
     while (cardEl.firstChild) {
         cardEl.removeChild(cardEl.firstChild);
     }
@@ -12,6 +11,5 @@ export function closeCard(MotherDiv, cardExists, alreadyExistsErrorMsg){
     }
     else{
         alert(alreadyExistsErrorMsg)
-        return true
     }
 }

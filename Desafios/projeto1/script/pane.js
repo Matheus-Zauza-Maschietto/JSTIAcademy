@@ -1,5 +1,6 @@
 import {CreateClientCard, moveClientList, clients, setInitialClientValue, cleanAndOpenToAddClient, cleanAndCloseToAddClient, addNewClient } from './clients.js'
-import {cleanBodyCard, closeCard} from './universalFunction.js'
+import {cleanCardBody, closeCard} from './universalFunction.js'
+import {CreateProductCard} from './products.js'
 
 window.onload = function(){
 
@@ -9,7 +10,7 @@ window.onload = function(){
     let cardExist = false
 
     toClient.addEventListener('click', function(){
-        cleanBodyCard(cardTable)
+        cleanCardBody(cardTable)
         cardExist = CreateClientCard(cardTable)
         
         let isAddingNewClient = false
@@ -27,7 +28,7 @@ window.onload = function(){
             isAddingNewClient = false
             actualId = moveClientList(idInput, nomeInput, dataInput, clients, actualId, false)
         })
-            let nextClient = document.querySelector("#nextClient")
+        let nextClient = document.querySelector("#nextClient")
         nextClient.addEventListener('click', function(){
             cleanAndCloseToAddClient(nomeInput, dataInput)
             isAddingNewClient = false
@@ -60,6 +61,7 @@ window.onload = function(){
     )
     
     toProduct.addEventListener('click', function(){
-        
+        cleanCardBody(cardTable)
+        cardExist = CreateProductCard(cardTable)
     })
 }

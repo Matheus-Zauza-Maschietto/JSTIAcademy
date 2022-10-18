@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /><link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="css/productCard.css">
     <link rel="stylesheet" href="css/clientCard.css">
     <link rel="stylesheet" href="css/stylePanel.css">
     <script src="./script/pane.js" type="module"></script>
@@ -54,9 +55,33 @@
                     <input type="button" value="Salvar">
                 </div>
             </div>  -->
-            <div cla>
-
+            <div class="cardProduct">
+                <div id="header-product" class="flex">
+                    <h2>Produtos</h2>
+                    <span id="closeCard">X</span>
+                </div>
+                <label for="productIdentifier" class="flex column cardProductLabel">Código
+                    <input type="text" name="productIdentifier" id="productIdentifier" readonly>
+                </label>
+                <label for="descricao" class="flex column cardProductLabel">Descrição
+                    <input type="text" name="descricao" id="descricao" readonly>
+                </label>
+                <label for="preco" class="flex column cardProductLabel">Preço
+                    <input type="text" name="preco" id="preco" readonly>
+                </label>
+                <label for="qnt" class="flex column cardProductLabel">Quantidade
+                    <input type="text" name="qnt" id="qnt" readonly>
+                </label>
+                <div class="flex productButtons">
+                    <div>
+                        <input type="button" value="&lt;">
+                        <input type="button" value="&gt;">
+                    </div>
+                    <input type="button" value="Novo" id="productNovo">
+                    <input type="button" value="Salvar" id="productSalvar">
+                </div>
             </div>
+
         </div>
     </main>
 </body>
