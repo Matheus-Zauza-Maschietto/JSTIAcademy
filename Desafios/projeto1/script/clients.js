@@ -24,14 +24,14 @@ export function closeCard(MotherDiv, cardExists, alreadyExistsErrorMsg){
     }
 }    
 
-export function setInitialClientValue(idEl, nameEl, dataCadastroEl, clientList){
-    idEl.value = clientList[0]["id"]
-    nameEl.value = clientList[0]["nome"]
-    dataCadastroEl.value = clientList[0]["dataCadastro"]
+export function setInitialClientValue(idEl, nameEl, dataCadastroEl, clientList, value){
+    idEl.value = clientList[value]["id"]
+    nameEl.value = clientList[value]["nome"]
+    dataCadastroEl.value = clientList[value]["dataCadastro"]
 }
 
 export function moveClientList(idEl, nameEl, dataCadastroEl, clientList, actualClient, nextClient){
-    console.log(actualClient)
+    cleanAndCloseToAddClient(nameEl, dataCadastroEl)
     if(actualClient+1 >= clientList.length && nextClient === true){
         alert('Fim da lista de clientes')
     }
@@ -45,6 +45,7 @@ export function moveClientList(idEl, nameEl, dataCadastroEl, clientList, actualC
         else{
             actualClient--
         }
+        
         idEl.value = clientList[actualClient]['id']
         nameEl.value = clientList[actualClient]['nome']
         dataCadastroEl.value = clientList[actualClient]['dataCadastro']  
@@ -69,7 +70,6 @@ export function addNewClient(idEl, nameEl, dataCadastro, clientList, isAdding){
             console.log()
             clientList.push({"id": idEl.value, "nome": nameEl.value.trim(), "dataCadastro": dataCadastro.value})
             alert(`O cadastro de ${nameEl.value} foi adicionado com sucesso !`)
-            setInitialClientValue(idEl, nameEl, dataCadastro, clientList)
         }
         else{
             alert("Nenhum campo pode ser deixado em branco")

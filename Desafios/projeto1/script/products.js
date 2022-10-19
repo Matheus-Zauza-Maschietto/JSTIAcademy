@@ -1,5 +1,84 @@
+export let products = [
+    {"id": 0, "descricao": "Caneta", "preco": "1", "quantidade": "86"},
+    {"id": 1, "descricao": "Lapis", "preco": "0.5", "quantidade": "50"},
+    {"id": 2, "descricao": "Caneca", "preco": "5", "quantidade": "12"},
+    {"id": 3, "descricao": "Fone de Ouvido", "preco": "20", "quantidade": "7"},
+    {"id": 4, "descricao": "Monior", "preco": "440", "quantidade": "1"},
+    ]
 
 
+export function moveProductList(idEl, descricaoEl, precoEl, qntEl, productList, actualProduct, nextProduct){
+    console.log()
+    cleanAndCloseToAddProduct(descricaoEl, precoEl, qntEl)
+    if(actualProduct+1 >= productList.length && nextProduct === true){
+        alert('Fim da lista de produtos')
+    }
+    else if(actualProduct-1 <= -1 && nextProduct === false){
+        console.log(actualProduct)
+        alert('Fim da lista de produtos')
+    }
+    else{
+        if(nextProduct===true){
+            actualProduct++
+        }
+        else{
+            actualProduct--
+        }
+        idEl.value = productList[actualProduct]['id']
+        descricaoEl.value = productList[actualProduct]['descricao']
+        precoEl.value = productList[actualProduct]['preco']  
+        qntEl.value = productList[actualProduct]['quantidade']
+    }
+    return actualProduct
+}
+
+export function addNewProduct(idEl, descricaoEl, precoEl, qntEl, productList, isAdding){
+    if(isAdding===true){
+
+        if(descricaoEl.value.trim() != "" && precoEl.value.trim() != "" && qntEl.value.trim() != ""){
+
+            if(!isNaN(Number(precoEl.value)) && !isNaN(Number(qntEl.value))){
+                productList.push({"id": idEl.value, "nome": descricaoEl.value.trim(), "descricao": descricaoEl.value.trim(), "preco": precoEl.value.trim(), "quantidade": qntEl.value.trim()})
+                alert(`O cadastro de ${descricaoEl.value} foi adicionado com sucesso !`)
+                
+            }
+            else{
+                alert("Os campos 'preço' e 'quantidade' so podem conter valores numericos")
+            }
+
+        }
+        else{
+            alert("Nenhum campo pode ser deixado em branco")
+        }
+    }
+
+    else{
+        alert('Primeiro clique em "novo" para salvar um novo produto')
+    }
+}
+
+export function setInitialProductValue(idEl, descricaoEl, precoEl, qntEl, productList, value){
+    idEl.value = productList[value]["id"]
+    descricaoEl.value = productList[value]["descricao"]
+    precoEl.value = productList[value]["preco"]
+    qntEl.value  = productList[value]["quantidade"]
+}
+
+export function cleanAndCloseToAddProduct(descricaoEl, precoEl, qntEl){
+    descricaoEl.setAttribute('readonly', '')
+    precoEl.setAttribute('readonly', '')
+    qntEl.setAttribute('readonly', '')
+}
+
+export function cleanAndOpenToAddProduct(idEl, descricaoEl, precoEl, qntEl, productList){
+    idEl.value = productList.length
+    descricaoEl.value = ''
+    precoEl.value = ''
+    qntEl.value = ''
+    descricaoEl.removeAttribute('readonly', '')
+    precoEl.removeAttribute('readonly', '')
+    qntEl.removeAttribute('readonly', '')
+}
 
 export function CreateProductCard(bodyDiv){
     let divMae = document.createElement('div')
@@ -88,13 +167,13 @@ export function CreateProductCard(bodyDiv){
                 btn = document.createElement('input')
                 btn.setAttribute("type","button")
                 btn.setAttribute("value","Novo")
-                btn.setAttribute("id","Novo")
+                btn.setAttribute("id","productNovo")
             divButtons.appendChild(btn)
 
                 btn = document.createElement('input')
                 btn.setAttribute("type","button")
                 btn.setAttribute("value","Salvar")
-                btn.setAttribute("id","Salvar")
+                btn.setAttribute("id","productSalvar")
             divButtons.appendChild(btn)
 
         divMae.appendChild(divButtons)
