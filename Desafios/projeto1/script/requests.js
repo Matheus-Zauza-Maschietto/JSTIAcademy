@@ -123,18 +123,24 @@ function CreateRequestCard(bodyDiv){
             table.appendChild(thead)
 
 
-            let tfoot = th = document.createElement('tfoot')
-                tr = document.createElement('tr')
-                    th = document.createElement('tr')
-                    th.setAttribute('colspan', '4')
-                    th.setAttribute('rowspan', '2')
-                    th.setAttribute('class', 'tableOcupation')
-                tr.appendChild(th)    
-                    th = document.createElement('tr')
-                    th.textContent('Valor total')
-                
-            tfoot.appendChild(tr)
-                tr = document.createElement('tr')
+                let tfoot = th = document.createElement('tfoot')
+                    tr = document.createElement('tr')
+                        th = document.createElement('tr')
+                        th.setAttribute('colspan', '4')
+                        th.setAttribute('rowspan', '2')
+                        th.setAttribute('class', 'tableOcupation')
+                    tr.appendChild(th)    
+                        th = document.createElement('tr')
+                        th.textContent('Valor total')
+                    tr.appendChild(th)  
+                tfoot.appendChild(tr)
 
+                    tr = document.createElement('tr')
+                        th = document.createElement('th')
+                        th.setAttribute('id', "totalValue")
+                    tr.appendChild(th)
+                tfoot.appendChild(tr)
+
+            table.appendChild(thead)
 
 }
