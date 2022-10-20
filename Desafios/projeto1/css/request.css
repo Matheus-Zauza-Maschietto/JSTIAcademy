@@ -1,0 +1,111 @@
+.cardRequest{
+    width: clamp(360px, 100%, 800px);
+    border: 1px black solid;
+    margin: auto;
+    
+    align-items: center;
+}
+
+.card-request-label, .cardRequestLabel, .cardRequest>div, #itens-request-div{
+    width: 90%;
+}
+
+.cardRequestLabel{
+    padding: 15px 0;
+}
+
+.card-request-label{
+    padding: 5px 0;
+}
+
+.product-request-input{
+    width: 100%;
+
+}
+
+
+.cardRequestLabel, .card-request-label, #itens-request-div{
+    font-size: 19px;
+    
+}
+
+#clientIdentifierRequest, #clientNameRequest, .product-request-input{
+    height: 30px;
+    font-size: 17px;
+}
+
+#header-request{
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header-request span {
+    display: block;
+    font-size: 25px;
+    padding: 10px;
+}
+
+#itens-request-div{
+    width: 90%;
+}
+
+#product-request-id{
+    width: clamp(30px, 3.5vw, 50px);
+}
+
+#product-request-qnt{
+    width: clamp(80px, 10vw, 130px);
+    
+}
+#product-request-id, #product-request-qnt{
+    font-size: clamp(13px, 2vw, 16px);
+}
+
+.deactivated{
+    background-color: rgb(236, 235, 235);
+    
+}
+
+table{
+    width: 100%;
+    font-size: 15px;
+    text-align: center;
+    margin: 0 0 15px 0;
+    padding: 0 0 5px 0;
+    border-bottom:1px solid black ;
+    border-collapse: collapse;
+}
+
+tfoot{
+    text-align: center;
+}
+
+tfoot th{
+    border-bottom: none;
+    border-top: none;
+}
+
+th{
+   border: 1px black solid;
+}
+
+tbody{
+    border-bottom: 1.5px black solid;
+}
+
+td{
+    padding: 5px 0;
+    border-left: 1px black solid;
+    border-right: 1px black solid;
+}
+
+.tableOcupation{
+    border: none;
+    border-left: 1px solid black;
+}
+
+#totalValue{
+    font-weight: normal;
+}
+
