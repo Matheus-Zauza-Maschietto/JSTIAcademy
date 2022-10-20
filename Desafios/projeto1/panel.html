@@ -27,7 +27,7 @@
             <ul class="flex">
                 <li class="flex" id="toClient"><span class="material-symbols-outlined"> group_add</span>Clientes</li>
                 <li class="flex" id="toProducts"><span class="material-symbols-outlined">inventory_2</span>Produtos</li>
-                <li class="flex"><span class="material-symbols-outlined"> shopping_cart </span>Pedidos</li>
+                <li class="flex" id="toRequest"><span class="material-symbols-outlined"> shopping_cart </span>Pedidos</li>
             </ul>
         </div>
         <div id="interfaceBody">
@@ -81,7 +81,51 @@
                     <input type="button" value="Salvar" id="productSalvar">
                 </div>
             </div>-->
+            <div class="cardRequest">
+                <div id="header-request" class="flex">
+                    <h2>Pedidos</h2>
+                    <span id="closeCard">X</span>
+                </div>
+                <label for="clientIdentifierRequest" class="flex column cardRequestLabel">Código do Cliente
+                    <input type="text" name="clientIdentifierRequest" id="clientIdentifierRequest">
+                </label>
+                <label for="clientNameRequest" class="flex column cardRequestLabel">Cliente
+                    <input type="text" name="clientNameRequest" id="clientNameRequest" readonly>
+                </label>
+                <hr>
+                <label for="clientNameRequest" class="flex column cardRequestLabel">Localizar produto
+                    <div class="request flex">
+                        <input type="text" name="clientNameRequest" id="clientNameRequest" >
+                        <input type="text" name="clientNameRequest" id="clientNameRequest" readonly>
+                        <input type="text" name="clientNameRequest" id="clientNameRequest" readonly>
+                        <input type="text" name="clientNameRequest" id="clientNameRequest" readonly>
+                        <input type="button" value="Lançar no pedido">
+                    </div>
+                </label>
+                <hr>
+                <div>
                     
+                    <table>
+                        <thead>
+                            <th>Item</th>
+                            <th>Descrição</th>
+                            <th>Preço</th>
+                            <th>Qtd</th>
+                            <th>Sub Total</th>
+                        </thead>    
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Caneta</td>
+                                <td>0.8</td>
+                                <td>5</td>
+                                <td>4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
         </div>
     </main>
 </body>
