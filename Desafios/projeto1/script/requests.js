@@ -1,8 +1,101 @@
-export let request = []
+export let requests = []
 
-function selectClientById(){
-    
+export let requestObjetc ={
+    "idClient": "",
+    "nameClient": "",
+    "idProduct":"",
+    "descricaoProduct": "",
+    "precoProduct": "",
+    "qntProduct": ""
 }
+
+function createTR(nameProduct, valueProduct, idProduct, qntProduct, tableTag){
+    let tr = document.createElement('tr')
+        let th = document.createElement('td')
+        th.textContent = idProduct
+    tr.appendChild(th)
+        th = document.createElement('td')
+        th.textContent = nameProduct
+    tr.appendChild(th)
+        th = document.createElement('td')
+        th.textContent = valueProduct
+    tr.appendChild(th)
+        th = document.createElement('td')
+        th.textContent = qntProduct
+    tr.appendChild(th)
+        th = document.createElement('td')
+        th.textContent = qntProduct*valueProduct
+    tr.appendChild(th)
+    tableTag.appendChild(tr)
+    
+
+        
+}
+
+export function addRequest(tableTag, clientList, productList){
+    const addRequestButton = document.querySelector('#launch')
+    addRequestButton.addEventListener('click', function(){
+        let idClient = document.querySelector('#clientIdentifierRequest')
+        let idProduct = document.querySelector('#product-request-id')
+        let qntProduct = document.querySelector('#product-request-qnt')
+
+        createTR(productList[idProduct.value]['descricao'], productList[idProduct.value]['preco'], idProduct.value, qntProduct.value, tableTag)
+    })
+    
+
+
+}
+
+export function selectClientById(clientList){
+    let idClient = document.querySelector('#clientIdentifierRequest')
+    idClient.addEventListener('focusout', function(){
+        try{
+            let nameClient = document.querySelector('#clientNameRequest')
+            nameClient.value = clientList[idClient.value]['nome']
+        }
+        catch{
+            alert("Nenhum cliente foi encontrado com esse id")
+            idClient.value = ''
+        }
+    })
+}
+
+export function selectProductById(productList){
+    let idProduct = document.querySelector('#product-request-id')
+    idProduct.addEventListener('focusout', function(){
+        try{
+            let nameProduct = document.querySelector('#product-request-name')
+            let valueProduct = document.querySelector('#product-request-value')
+            nameProduct.value = productList[idProduct.value]['descricao']
+            let preco = Number(productList[idProduct.value]['preco'])
+            valueProduct.value = preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
+        }
+        catch{
+            alert("Nenhum produto foi encontrado com esse id")
+            idClient.value = ''
+        }
+    })
+}
+
+
+
+// export function setInitialRequestValue(clientBackup){
+//     let nameClient = document.querySelector('#clientNameRequest')
+//     let idClient = document.querySelector('#clientIdentifierRequest')
+//     let nameProduct = document.querySelector('#product-request-name')
+//     let valueProduct = document.querySelector('#product-request-value')
+//     let idProduct = document.querySelector('#product-request-id')
+//     let qntProduct = document.querySelector('#product-request-id')
+
+//     idClient.value = clientBackup['idClient']
+//     nameClient.value = clientBackup['nameClient']
+//     idProduct.value = clientBackup['idProduct']
+//     nameProduct.value = clientBackup['descricaoProduct']
+//     valueProduct.value = clientBackup['precoProduct']
+//     qntProduct.value = clientBackup['qntProduct']
+    
+    
+// }
 
 export function CreateRequestCard(bodyDiv){
     let divMae = document.createElement('div')
@@ -89,6 +182,7 @@ export function CreateRequestCard(bodyDiv){
                 let btn = document.createElement('input')
                 btn.setAttribute("type","button")
                 btn.setAttribute("value","Lançar no pedido")
+                btn.setAttribute("id","launch")
             div.appendChild(btn)
 
         label.appendChild(div)
@@ -101,6 +195,7 @@ export function CreateRequestCard(bodyDiv){
             div.appendChild(span)
 
             let table = document.createElement('table')
+            table.setAttribute('id', 'table')
                 let thead = document.createElement('thead')
                     let tr = document.createElement('tr')
                         let th = document.createElement('th')
@@ -127,23 +222,7 @@ export function CreateRequestCard(bodyDiv){
             table.appendChild(thead)
 
                 let tbody = document.createElement('tbody')
-                    tr = document.createElement('tr')
-                        let td = document.createElement('td')
-                        td.textContent = '1'
-                    tr.appendChild(td)
-                        td = document.createElement('td')
-                        td.textContent = 'caneta'
-                    tr.appendChild(td)
-                        td = document.createElement('td')
-                        td.textContent = '0.8'
-                    tr.appendChild(td)
-                        td = document.createElement('td')
-                        td.textContent = '5'
-                    tr.appendChild(td)
-                        td = document.createElement('td')
-                        td.textContent = '4'
-                    tr.appendChild(td)
-                tbody.appendChild(tr)
+                btn.setAttribute("id","tbody")
             table.append(tbody)
 
 

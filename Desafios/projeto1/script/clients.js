@@ -1,3 +1,4 @@
+
 export let clients = [
         {"id": 0, "nome": "João Gustavo", "dataCadastro": "10/02/2004"},
         {"id": 1, "nome": "Mario1", "dataCadastro": "06/05/2019"},
@@ -62,6 +63,7 @@ export function cleanAndOpenToAddClient(idEl, nameEl, dataCadastroEl, clientList
     nameEl.value = ''
     nameEl.removeAttribute('readonly', '')
     dataCadastroEl.value = getData()
+    return clientList.length
 }
 
 export function addNewClient(idEl, nameEl, dataCadastro, clientList, isAdding){
@@ -172,5 +174,4 @@ export function CreateClientCard(bodyDiv){
         divMae.appendChild(divButtons)
 
     bodyDiv.appendChild(divMae)
-    return true
 }

@@ -1,7 +1,7 @@
 import {CreateClientCard, moveClientList, clients, setInitialClientValue, cleanAndOpenToAddClient,cleanAndCloseToAddClient, addNewClient } from './clients.js'
 import {cleanCardBody, closeCard} from './universalFunction.js'
 import {CreateProductCard, products, setInitialProductValue, moveProductList, cleanAndCloseToAddProduct, cleanAndOpenToAddProduct, addNewProduct} from './products.js'
-import {CreateRequestCard} from './requests.js'
+import {CreateRequestCard, requests, selectClientById, selectProductById, addRequest} from './requests.js'
 
 window.onload = function(){
 
@@ -9,7 +9,6 @@ window.onload = function(){
     const toProduct = document.querySelector('#toProducts')
     const toRequest = document.querySelector('#toRequest')
     const cardTable = document.querySelector('#interfaceBody')
-    let cardExist = false
     let actualIdClient = 0
     let actualIdProduct = 0
 
@@ -18,11 +17,12 @@ window.onload = function(){
         if(actualIdClient == clients.length){
             actualIdClient = clients.length-1
         }
+        
         // CLEAN BODY
         cleanCardBody(cardTable)
 
         // CREATE CARD
-        cardExist = CreateClientCard(cardTable)
+        CreateClientCard(cardTable)
         
         let isAddingNewClient = false
         let idInput = document.querySelector("#identifier")
@@ -49,8 +49,7 @@ window.onload = function(){
         let newClient = document.querySelector("#Novo")
         newClient.addEventListener('click', function(){
             isAddingNewClient = true
-            cleanAndOpenToAddClient(idInput, nomeInput, dataInput, clients)
-            actualIdClient = clients.length
+            actualIdClient = cleanAndOpenToAddClient(idInput, nomeInput, dataInput, clients)
         })
         
         // SAVE
@@ -61,14 +60,10 @@ window.onload = function(){
         })
 
         // CLOSE
-        let closeCardEl = document.querySelector("#closeCard")
-        closeCardEl.addEventListener("click", function(){
-            cardExist = closeCard(closeCardEl.parentElement.parentElement, cardExist, "A tela de clientes já está aberta")
-        })
+        closeCard('#closeCard')
         
         
-    }
-    )
+    })
     
     toProduct.addEventListener('click', function(){
         // CHECK IF INIT VALUE IN VALUE RANGE
@@ -81,7 +76,7 @@ window.onload = function(){
         cleanCardBody(cardTable)
 
         // CREATE CARD
-        cardExist = CreateProductCard(cardTable)
+        CreateProductCard(cardTable)
         
         let isAddingNewProduct = false
         let idProductInput = document.querySelector('#productIdentifier')
@@ -109,8 +104,7 @@ window.onload = function(){
         let newProduct = document.querySelector("#productNovo")
         newProduct.addEventListener('click', function(){
             isAddingNewProduct = true
-            cleanAndOpenToAddProduct(idProductInput, descricaoInput, precoInput, quantidadeInput, products)
-            actualIdProduct = products.length
+            actualIdProduct = cleanAndOpenToAddProduct(idProductInput, descricaoInput, precoInput, quantidadeInput, products)
         })
 
         // SAVE
@@ -121,10 +115,7 @@ window.onload = function(){
         })
 
         // CLOSE
-        let closeCardEl = document.querySelector("#closeCard")
-        closeCardEl.addEventListener("click", function(){
-        cardExist = closeCard(closeCardEl.parentElement.parentElement, cardExist, "A tela de produtos já está aberta")
-        })
+        closeCard('#closeCard')
 
     })
     toRequest.addEventListener('click', function(){
@@ -132,13 +123,18 @@ window.onload = function(){
         cleanCardBody(cardTable)
 
         // CREATE CARD
-        cardExist = CreateRequestCard(cardTable)
-        
+        CreateRequestCard(cardTable)
+
+        // SELECT CLIENT NAME
+        selectClientById(clients)
+
+        // SELECT PRODUCT NAME
+        selectProductById(products)
+
+        // ADD ITEM AT TABLE
+        addRequest(document.querySelector('#tbody'), clients, products)
 
         // CLOSE
-        let closeCardEl = document.querySelector("#closeCard")
-        closeCardEl.addEventListener("click", function(){
-        cardExist = closeCard(closeCardEl.parentElement.parentElement, cardExist, "A tela de pedidos já está aberta")
-        }) 
+        closeCard('#closeCard')
     })  
 }

@@ -78,6 +78,7 @@ export function cleanAndOpenToAddProduct(idEl, descricaoEl, precoEl, qntEl, prod
     descricaoEl.removeAttribute('readonly', '')
     precoEl.removeAttribute('readonly', '')
     qntEl.removeAttribute('readonly', '')
+    return productList.length
 }
 
 export function CreateProductCard(bodyDiv){
@@ -179,5 +180,4 @@ export function CreateProductCard(bodyDiv){
         divMae.appendChild(divButtons)
 
     bodyDiv.appendChild(divMae)
-    return true
 }

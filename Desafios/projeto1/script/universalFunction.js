@@ -4,12 +4,9 @@ export function cleanCardBody(cardEl){
     }
 }
 
-export function closeCard(MotherDiv, cardExists, alreadyExistsErrorMsg){
-    if(cardExists===true){
-        MotherDiv.remove()
-        return false
-    }
-    else{
-        alert(alreadyExistsErrorMsg)
-    }
+export function closeCard(elementId){
+    let closeCardEl = document.querySelector(elementId)
+        closeCardEl.addEventListener("click", function(){
+            closeCardEl.parentElement.parentElement.remove()
+        })
 }
