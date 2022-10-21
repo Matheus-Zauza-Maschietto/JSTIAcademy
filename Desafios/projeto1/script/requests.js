@@ -1,6 +1,10 @@
-let request = []
+export let request = []
 
-function CreateRequestCard(bodyDiv){
+function selectClientById(){
+    
+}
+
+export function CreateRequestCard(bodyDiv){
     let divMae = document.createElement('div')
     divMae.classList.add("cardRequest")
     divMae.classList.add("flex")
@@ -40,7 +44,7 @@ function CreateRequestCard(bodyDiv){
             input.setAttribute("id","clientNameRequest")
             input.setAttribute('disabled', '')
         label.appendChild(input)
-            
+        divMae.appendChild(label)   
 
         label = document.createElement('label')
         label.setAttribute("for", "product-request-id")
@@ -99,48 +103,70 @@ function CreateRequestCard(bodyDiv){
             let table = document.createElement('table')
                 let thead = document.createElement('thead')
                     let tr = document.createElement('tr')
-                        let th = document.createElement('tr')
+                        let th = document.createElement('th')
                         th.textContent = 'Item'
                     tr.appendChild(th)
 
-                        th = document.createElement('tr')
+                        th = document.createElement('th')
                         th.textContent = 'Descrição'
                     tr.appendChild(th)
 
-                        th = document.createElement('tr')
+                        th = document.createElement('th')
                         th.textContent = 'Preço'
                     tr.appendChild(th)
 
-                        th = document.createElement('tr')
+                        th = document.createElement('th')
                         th.textContent = 'Qtd'
                     tr.appendChild(th)
 
-                        th = document.createElement('tr')
+                        th = document.createElement('th')
                         th.textContent = 'Sub Total'
                     tr.appendChild(th)
 
                 thead.appendChild(tr)
             table.appendChild(thead)
 
+                let tbody = document.createElement('tbody')
+                    tr = document.createElement('tr')
+                        let td = document.createElement('td')
+                        td.textContent = '1'
+                    tr.appendChild(td)
+                        td = document.createElement('td')
+                        td.textContent = 'caneta'
+                    tr.appendChild(td)
+                        td = document.createElement('td')
+                        td.textContent = '0.8'
+                    tr.appendChild(td)
+                        td = document.createElement('td')
+                        td.textContent = '5'
+                    tr.appendChild(td)
+                        td = document.createElement('td')
+                        td.textContent = '4'
+                    tr.appendChild(td)
+                tbody.appendChild(tr)
+            table.append(tbody)
+
 
                 let tfoot = th = document.createElement('tfoot')
                     tr = document.createElement('tr')
-                        th = document.createElement('tr')
+                        th = document.createElement('th')
                         th.setAttribute('colspan', '4')
                         th.setAttribute('rowspan', '2')
                         th.setAttribute('class', 'tableOcupation')
                     tr.appendChild(th)    
-                        th = document.createElement('tr')
-                        th.textContent('Valor total')
+                        th = document.createElement('th')
+                        th.textContent = 'Valor total'
                     tr.appendChild(th)  
                 tfoot.appendChild(tr)
-
                     tr = document.createElement('tr')
                         th = document.createElement('th')
+                        th.textContent = ''
                         th.setAttribute('id', "totalValue")
                     tr.appendChild(th)
                 tfoot.appendChild(tr)
 
-            table.appendChild(thead)
-
+            table.appendChild(tfoot)
+        div.appendChild(table)
+    divMae.append(div)
+    bodyDiv.appendChild(divMae)
 }

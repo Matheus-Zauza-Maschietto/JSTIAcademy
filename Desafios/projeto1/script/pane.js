@@ -1,11 +1,13 @@
 import {CreateClientCard, moveClientList, clients, setInitialClientValue, cleanAndOpenToAddClient,cleanAndCloseToAddClient, addNewClient } from './clients.js'
 import {cleanCardBody, closeCard} from './universalFunction.js'
 import {CreateProductCard, products, setInitialProductValue, moveProductList, cleanAndCloseToAddProduct, cleanAndOpenToAddProduct, addNewProduct} from './products.js'
+import {CreateRequestCard} from './requests.js'
 
 window.onload = function(){
 
     const toClient = document.querySelector('#toClient')
     const toProduct = document.querySelector('#toProducts')
+    const toRequest = document.querySelector('#toRequest')
     const cardTable = document.querySelector('#interfaceBody')
     let cardExist = false
     let actualIdClient = 0
@@ -13,8 +15,8 @@ window.onload = function(){
 
     toClient.addEventListener('click', function(){
         // CHECK IF INIT VALUE IN VALUE RANGE
-        if(actualIdProduct == products.length){
-            actualIdProduct = products.length-1
+        if(actualIdClient == clients.length){
+            actualIdClient = clients.length-1
         }
         // CLEAN BODY
         cleanCardBody(cardTable)
@@ -70,9 +72,10 @@ window.onload = function(){
     
     toProduct.addEventListener('click', function(){
         // CHECK IF INIT VALUE IN VALUE RANGE
-        if(actualIdClient == clients.length){
-            actualIdClient = clients.length-1
+        if(actualIdProduct == products.length){
+            actualIdProduct = products.length-1
         }
+        
 
         // CLEAN BODY
         cleanCardBody(cardTable)
@@ -124,4 +127,18 @@ window.onload = function(){
         })
 
     })
+    toRequest.addEventListener('click', function(){
+        // CLEAN BODY
+        cleanCardBody(cardTable)
+
+        // CREATE CARD
+        cardExist = CreateRequestCard(cardTable)
+        
+
+        // CLOSE
+        let closeCardEl = document.querySelector("#closeCard")
+        closeCardEl.addEventListener("click", function(){
+        cardExist = closeCard(closeCardEl.parentElement.parentElement, cardExist, "A tela de pedidos já está aberta")
+        }) 
+    })  
 }
