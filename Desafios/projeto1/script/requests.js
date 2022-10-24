@@ -1,49 +1,91 @@
 export let requests = []
 
-export let requestObjetc ={
-    "idClient": "",
-    "nameClient": "",
-    "idProduct":"",
-    "descricaoProduct": "",
-    "precoProduct": "",
-    "qntProduct": ""
+export function requestObjetcLastValue(idClient, nameClient, idProduct, descricaoProduct, precoProduct, qntProduct){
+    return {"idClient": idClient,
+            "nameClient": nameClient,
+            "idProduct":idProduct,
+            "descricaoProduct": descricaoProduct,
+            "precoProduct": precoProduct,
+            "qntProduct": qntProduct}
 }
 
 function createTR(nameProduct, valueProduct, idProduct, qntProduct, tableTag){
     let tr = document.createElement('tr')
-        let th = document.createElement('td')
-        th.textContent = idProduct
-    tr.appendChild(th)
-        th = document.createElement('td')
-        th.textContent = nameProduct
-    tr.appendChild(th)
-        th = document.createElement('td')
-        th.textContent = valueProduct
-    tr.appendChild(th)
-        th = document.createElement('td')
-        th.textContent = qntProduct
-    tr.appendChild(th)
-        th = document.createElement('td')
-        th.textContent = qntProduct*valueProduct
-    tr.appendChild(th)
+        let td = document.createElement('td')
+        td.textContent = idProduct
+    tr.appendChild(td)
+        td = document.createElement('td')
+        td.textContent = nameProduct
+    tr.appendChild(td)
+        td = document.createElement('td')
+        td.textContent = valueProduct
+    tr.appendChild(td)
+        td = document.createElement('td')
+        td.textContent = qntProduct
+    tr.appendChild(td)
+        td = document.createElement('td')
+        td.textContent = (qntProduct*valueProduct).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
+    tr.appendChild(td)
     tableTag.appendChild(tr)
     
 
         
 }
 
-export function addRequest(tableTag, clientList, productList){
-    const addRequestButton = document.querySelector('#launch')
+function sumItens(list){
+    let sum = 0
+    for(let item of list){
+        sum += Number(item['precoProduct'])*Number(item['qntProduct'])
+    }
+    return sum
+    
+}
+
+export function addRequest(tableTag, requestList, clientList, productList){
+    const addRequestButton = document.querySelector('#launchRequest')
     addRequestButton.addEventListener('click', function(){
         let idClient = document.querySelector('#clientIdentifierRequest')
         let idProduct = document.querySelector('#product-request-id')
         let qntProduct = document.querySelector('#product-request-qnt')
 
-        createTR(productList[idProduct.value]['descricao'], productList[idProduct.value]['preco'], idProduct.value, qntProduct.value, tableTag)
+        try{
+          if (parseInt(qntProduct.value) <= productList[idProduct.value]['quantidade']){
+            let alreadyHasAdded = false
+            
+            for(let item of requestList){
+                if(item['idProduct'] == idProduct.value){
+                    alreadyHasAdded = true
+                    break
+                }
+            }
+            if(alreadyHasAdded === false){
+                requestList.push({
+                    "idClient": idClient.value,
+                    "nameClient": clientList[idClient.value]['nome'],
+                    "idProduct": idProduct.value,
+                    "descricaoProduct": productList[idProduct.value]['descricao'],
+                    "precoProduct": productList[idProduct.value]['preco'],
+                    "qntProduct": (qntProduct.value).trim()
+                })
+                createTR(productList[idProduct.value]['descricao'], productList[idProduct.value]['preco'], idProduct.value, qntProduct.value.trim(), tableTag)
+                let value = sumItens(requestList)
+                document.querySelector('#totalValue').textContent = value.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
+            }
+            else{
+                alert('Esse item já foi adicionado ao pedido')
+            }
+            }
+        else{
+            alert('Não é possivel selecionar essa quantidade')
+        }
+        console.log(requestList)
+        }
+        catch{
+            alert("Foi digitado um valor invalido, por favor tente novamente")
+        }
+        
+        
     })
-    
-
-
 }
 
 export function selectClientById(clientList){
@@ -54,8 +96,15 @@ export function selectClientById(clientList){
             nameClient.value = clientList[idClient.value]['nome']
         }
         catch{
-            alert("Nenhum cliente foi encontrado com esse id")
-            idClient.value = ''
+            if((idClient.value).trim() != ''){
+                alert("Nenhum cliente foi encontrado com esse id")
+                idClient.value = ''
+                document.querySelector('#clientNameRequest').value = ''
+            }
+            else{
+                idClient.value = ''
+                document.querySelector('#clientNameRequest').value = ''
+            }
         }
     })
 }
@@ -71,33 +120,20 @@ export function selectProductById(productList){
             valueProduct.value = preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
         }
         catch{
-            alert("Nenhum produto foi encontrado com esse id")
-            idClient.value = ''
+            if((idProduct.value).trim() != ""){
+                alert("Nenhum produto foi encontrado com esse id")
+                idProduct.value = ''
+                document.querySelector('#product-request-name').value = ''
+                document.querySelector('#product-request-value').value = ''
+            }
+            else{
+                idProduct.value = ''
+            }
         }
     })
 }
 
-
-
-// export function setInitialRequestValue(clientBackup){
-//     let nameClient = document.querySelector('#clientNameRequest')
-//     let idClient = document.querySelector('#clientIdentifierRequest')
-//     let nameProduct = document.querySelector('#product-request-name')
-//     let valueProduct = document.querySelector('#product-request-value')
-//     let idProduct = document.querySelector('#product-request-id')
-//     let qntProduct = document.querySelector('#product-request-id')
-
-//     idClient.value = clientBackup['idClient']
-//     nameClient.value = clientBackup['nameClient']
-//     idProduct.value = clientBackup['idProduct']
-//     nameProduct.value = clientBackup['descricaoProduct']
-//     valueProduct.value = clientBackup['precoProduct']
-//     qntProduct.value = clientBackup['qntProduct']
-    
-    
-// }
-
-export function CreateRequestCard(bodyDiv){
+export function CreateRequestCard(bodyDiv, requestList){
     let divMae = document.createElement('div')
     divMae.classList.add("cardRequest")
     divMae.classList.add("flex")
@@ -182,7 +218,7 @@ export function CreateRequestCard(bodyDiv){
                 let btn = document.createElement('input')
                 btn.setAttribute("type","button")
                 btn.setAttribute("value","Lançar no pedido")
-                btn.setAttribute("id","launch")
+                btn.setAttribute("id","launchRequest")
             div.appendChild(btn)
 
         label.appendChild(div)
@@ -222,7 +258,27 @@ export function CreateRequestCard(bodyDiv){
             table.appendChild(thead)
 
                 let tbody = document.createElement('tbody')
-                btn.setAttribute("id","tbody")
+                tbody.setAttribute("id","tbody")
+                
+                for(let item of requestList){
+                    tr = document.createElement('tr')
+                        let td = document.createElement('td')
+                        td.textContent = item['idProduct']
+                    tr.appendChild(td)
+                        td = document.createElement('td')
+                        td.textContent = item['descricaoProduct']
+                    tr.appendChild(td)
+                        td = document.createElement('td')
+                        td.textContent = item['precoProduct'].toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
+                    tr.appendChild(td)
+                        td = document.createElement('td')
+                        td.textContent = item['qntProduct']
+                    tr.appendChild(td)
+                        td = document.createElement('td')
+                        td.textContent = (item['precoProduct']*item['qntProduct']).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
+                    tr.appendChild(td)
+                    tbody.appendChild(tr)
+                }
             table.append(tbody)
 
 
@@ -239,7 +295,7 @@ export function CreateRequestCard(bodyDiv){
                 tfoot.appendChild(tr)
                     tr = document.createElement('tr')
                         th = document.createElement('th')
-                        th.textContent = ''
+                        th.textContent = sumItens(requestList).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
                         th.setAttribute('id', "totalValue")
                     tr.appendChild(th)
                 tfoot.appendChild(tr)

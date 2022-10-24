@@ -2,4 +2,11 @@
               {"id": 1, "nome": "Mario1", "dataCadastro": "06/05/2019"},
               {"id": 2, "nome": "Mario2", "dataCadastro": "06/05/2019"},
               {"id": 3, "nome": "Mario3", "dataCadastro": "06/05/2019"},
-              {"id": 4, "nome": "Mario4", "dataCadastro": "06/05/2019"}]}
+              {"id": 4, "nome": "Mario4", "dataCadastro": "06/05/2019"}],
+"Produtos": [
+    {"id": 0, "descricao": "Caneta", "preco": "1", "quantidade": "86"},
+    {"id": 1, "descricao": "Lapis", "preco": "0.5", "quantidade": "50"},
+    {"id": 2, "descricao": "Caneca", "preco": "5", "quantidade": "12"},
+    {"id": 3, "descricao": "Fone de Ouvido", "preco": "20", "quantidade": "7"},
+    {"id": 4, "descricao": "Monior", "preco": "440", "quantidade": "1"}
+    ]}

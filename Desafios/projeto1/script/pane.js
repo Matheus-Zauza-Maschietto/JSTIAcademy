@@ -123,7 +123,7 @@ window.onload = function(){
         cleanCardBody(cardTable)
 
         // CREATE CARD
-        CreateRequestCard(cardTable)
+        CreateRequestCard(cardTable, requests)
 
         // SELECT CLIENT NAME
         selectClientById(clients)
@@ -132,7 +132,7 @@ window.onload = function(){
         selectProductById(products)
 
         // ADD ITEM AT TABLE
-        addRequest(document.querySelector('#tbody'), clients, products)
+        addRequest(document.querySelector('#tbody'), requests, clients, products)
 
         // CLOSE
         closeCard('#closeCard')

@@ -10,3 +10,5 @@ export function closeCard(elementId){
             closeCardEl.parentElement.parentElement.remove()
         })
 }
+
+
