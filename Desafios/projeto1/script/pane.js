@@ -12,6 +12,20 @@ window.onload = function(){
     let actualIdClient = 0
     let actualIdProduct = 0
 
+    let clientse = async function(){
+        let path = 'C:/Users/matheus.maschietto/Documents/GitHub/JSTIAcademy/Desafios/projeto1/json/infos.json';
+        try{ 
+            let dadosFetch = await fetch(path);        
+            let dadosJson = await dadosFetch.json();
+            console.log(dadosJson)
+            return dadosJson['clientes'];
+            } 
+        catch(error){
+            alert(error);
+            }
+    }
+    console.log(clientse)
+
     toClient.addEventListener('click', function(){
         // CHECK IF INIT VALUE IN VALUE RANGE
         if(actualIdClient == clients.length){

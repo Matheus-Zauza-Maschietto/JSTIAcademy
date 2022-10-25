@@ -8,6 +8,8 @@ export let clients = [
         ]
 
 
+
+
 export function cleanBodyCard(cardEl){
     while (cardEl.firstChild) {
         cardEl.removeChild(cardEl.firstChild);
