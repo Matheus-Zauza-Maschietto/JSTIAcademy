@@ -1,14 +1,11 @@
+import {ValidarLogin} from './jsonLoad'
 
 export function autenticator(){
     const login = document.querySelector("#login")
     const usuario = document.querySelector('#usuario')
     const senha = document.querySelector("#senha")
     let autenticado = false
-    let users = [
-        {"user": "matheus", "senha": "12345"},
-        {"user": "andre", "senha": "666"},
-        {"user": "miriam", "senha": "12345"}
-    ]
+    let users = ValidarLogin()
     
     login.addEventListener('click', function(){
         

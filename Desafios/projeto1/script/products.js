@@ -8,7 +8,7 @@ export let products = [
 
 
 export function moveProductList(idEl, descricaoEl, precoEl, qntEl, productList, actualProduct, nextProduct){
-    console.log()
+    
     cleanAndCloseToAddProduct(descricaoEl, precoEl, qntEl)
     if(actualProduct+1 >= productList.length && nextProduct === true){
         alert('Fim da lista de produtos')

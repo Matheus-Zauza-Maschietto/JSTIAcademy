@@ -1,13 +1,12 @@
 export let requests = []
 
-export function requestObjetcLastValue(idClient, nameClient, idProduct, descricaoProduct, precoProduct, qntProduct){
-    return {"idClient": idClient,
-            "nameClient": nameClient,
-            "idProduct":idProduct,
-            "descricaoProduct": descricaoProduct,
-            "precoProduct": precoProduct,
-            "qntProduct": qntProduct}
-}
+export let saveLastData = {"idClient": "",
+                            "nameClient": "",
+                            "idProduct":"",
+                            "descricaoProduct": "",
+                            "precoProduct": "",
+                            "qntProduct": ""}
+
 
 function createTR(nameProduct, valueProduct, idProduct, qntProduct, tableTag){
     let tr = document.createElement('tr')
@@ -18,7 +17,7 @@ function createTR(nameProduct, valueProduct, idProduct, qntProduct, tableTag){
         td.textContent = nameProduct
     tr.appendChild(td)
         td = document.createElement('td')
-        td.textContent = valueProduct
+        td.textContent = Number(valueProduct).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
     tr.appendChild(td)
         td = document.createElement('td')
         td.textContent = qntProduct
@@ -78,7 +77,6 @@ export function addRequest(tableTag, requestList, clientList, productList){
         else{
             alert('Não é possivel selecionar essa quantidade')
         }
-        console.log(requestList)
         }
         catch{
             alert("Foi digitado um valor invalido, por favor tente novamente")
@@ -89,11 +87,14 @@ export function addRequest(tableTag, requestList, clientList, productList){
 }
 
 export function selectClientById(clientList){
+    
     let idClient = document.querySelector('#clientIdentifierRequest')
     idClient.addEventListener('focusout', function(){
         try{
             let nameClient = document.querySelector('#clientNameRequest')
             nameClient.value = clientList[idClient.value]['nome']
+            saveLastData['idClient'] = idClient.value
+            saveLastData['nameClient'] = nameClient.value
         }
         catch{
             if((idClient.value).trim() != ''){
@@ -133,7 +134,7 @@ export function selectProductById(productList){
     })
 }
 
-export function CreateRequestCard(bodyDiv, requestList){
+export function CreateRequestCard(bodyDiv, requestList, lastUpdate){
     let divMae = document.createElement('div')
     divMae.classList.add("cardRequest")
     divMae.classList.add("flex")
@@ -162,6 +163,7 @@ export function CreateRequestCard(bodyDiv, requestList){
             input.setAttribute("type","text")
             input.setAttribute("name","clientIdentifierRequest")
             input.setAttribute("id","clientIdentifierRequest")
+            input.value = lastUpdate['idClient']
         label.appendChild(input)
         divMae.appendChild(label)
 
@@ -172,6 +174,7 @@ export function CreateRequestCard(bodyDiv, requestList){
             input.setAttribute("type","text")
             input.setAttribute("id","clientNameRequest")
             input.setAttribute('disabled', '')
+            input.value = lastUpdate['nameClient']
         label.appendChild(input)
         divMae.appendChild(label)   
 
@@ -189,6 +192,7 @@ export function CreateRequestCard(bodyDiv, requestList){
                 input.setAttribute("id","product-request-id")
                 input.setAttribute('class', 'product-request-input')
                 input.setAttribute('placeholder', 'ID')
+                input.value = lastUpdate['idProduct']
             div.appendChild(input)
                 
                 input = document.createElement('input')
@@ -197,6 +201,7 @@ export function CreateRequestCard(bodyDiv, requestList){
                 input.setAttribute("id","product-request-name")
                 input.setAttribute('class', 'product-request-input deactivated')
                 input.setAttribute('disabled', '')
+                input.value = lastUpdate['descricaoProduct']
             div.appendChild(input)
 
                 input = document.createElement('input')
@@ -205,6 +210,7 @@ export function CreateRequestCard(bodyDiv, requestList){
                 input.setAttribute("id","product-request-value")
                 input.setAttribute('class', 'product-request-input deactivated')
                 input.setAttribute('disabled', '')
+                input.value = lastUpdate['precoProduct']
             div.appendChild(input)
 
                 input = document.createElement('input')
@@ -213,6 +219,7 @@ export function CreateRequestCard(bodyDiv, requestList){
                 input.setAttribute("id","product-request-qnt")
                 input.setAttribute('class', 'product-request-input')
                 input.setAttribute('placeholder', 'Quantidade')
+                input.value = lastUpdate['qntProduct']
             div.appendChild(input)
 
                 let btn = document.createElement('input')
@@ -269,7 +276,8 @@ export function CreateRequestCard(bodyDiv, requestList){
                         td.textContent = item['descricaoProduct']
                     tr.appendChild(td)
                         td = document.createElement('td')
-                        td.textContent = item['precoProduct'].toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
+                        let preco = Number(item['precoProduct'])
+                        td.textContent = preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
                     tr.appendChild(td)
                         td = document.createElement('td')
                         td.textContent = item['qntProduct']

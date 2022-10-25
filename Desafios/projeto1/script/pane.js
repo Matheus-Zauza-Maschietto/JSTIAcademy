@@ -1,30 +1,16 @@
 import {CreateClientCard, moveClientList, clients, setInitialClientValue, cleanAndOpenToAddClient,cleanAndCloseToAddClient, addNewClient } from './clients.js'
 import {cleanCardBody, closeCard} from './universalFunction.js'
 import {CreateProductCard, products, setInitialProductValue, moveProductList, cleanAndCloseToAddProduct, cleanAndOpenToAddProduct, addNewProduct} from './products.js'
-import {CreateRequestCard, requests, selectClientById, selectProductById, addRequest} from './requests.js'
+import {CreateRequestCard, requests, selectClientById, selectProductById, addRequest, saveLastData} from './requests.js'
+
 
 window.onload = function(){
-
     const toClient = document.querySelector('#toClient')
     const toProduct = document.querySelector('#toProducts')
     const toRequest = document.querySelector('#toRequest')
     const cardTable = document.querySelector('#interfaceBody')
     let actualIdClient = 0
     let actualIdProduct = 0
-
-    let clientse = async function(){
-        let path = 'C:/Users/matheus.maschietto/Documents/GitHub/JSTIAcademy/Desafios/projeto1/json/infos.json';
-        try{ 
-            let dadosFetch = await fetch(path);        
-            let dadosJson = await dadosFetch.json();
-            console.log(dadosJson)
-            return dadosJson['clientes'];
-            } 
-        catch(error){
-            alert(error);
-            }
-    }
-    console.log(clientse)
 
     toClient.addEventListener('click', function(){
         // CHECK IF INIT VALUE IN VALUE RANGE
@@ -42,7 +28,6 @@ window.onload = function(){
         let idInput = document.querySelector("#identifier")
         let nomeInput = document.querySelector("#name")
         let dataInput = document.querySelector("#date")
-
         // SET INIT VALUE
         setInitialClientValue(idInput, nomeInput, dataInput, clients, actualIdClient)
 
@@ -137,7 +122,7 @@ window.onload = function(){
         cleanCardBody(cardTable)
 
         // CREATE CARD
-        CreateRequestCard(cardTable, requests)
+        CreateRequestCard(cardTable, requests, )
 
         // SELECT CLIENT NAME
         selectClientById(clients)
