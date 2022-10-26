@@ -1,4 +1,4 @@
-import {CreateClientCard, moveClientList, clients, setInitialClientValue, cleanAndOpenToAddClient,cleanAndCloseToAddClient, addNewClient } from './clients.js'
+import {CreateClientCard, moveClientList, clients, setInitialClientValue, cleanAndOpenToAddClient,cleanAndCloseToAddClient, addNewClient, clientIndex } from './clients.js'
 import {cleanCardBody, closeCard} from './universalFunction.js'
 import {CreateProductCard, products, setInitialProductValue, moveProductList, cleanAndCloseToAddProduct, cleanAndOpenToAddProduct, addNewProduct} from './products.js'
 import {CreateRequestCard, requests, selectClientById, selectProductById, addRequest, saveLastData} from './requests.js'

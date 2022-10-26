@@ -1,14 +1,21 @@
 
+// export let clients = [
+//         {"id": 0, "nome": "João Gustavo", "dataCadastro": "10/02/2004"},
+//         {"id": 1, "nome": "Mario1", "dataCadastro": "06/05/2019"},
+//         {"id": 2, "nome": "Mario2", "dataCadastro": "14/02/2012"},
+//         {"id": 3, "nome": "Mario3", "dataCadastro": "18/04/2015"},
+//         {"id": 4, "nome": "Mario4", "dataCadastro": "01/08/2019"},
+//         ]
+
 export let clients = [
-        {"id": 0, "nome": "João Gustavo", "dataCadastro": "10/02/2004"},
-        {"id": 1, "nome": "Mario1", "dataCadastro": "06/05/2019"},
-        {"id": 2, "nome": "Mario2", "dataCadastro": "14/02/2012"},
-        {"id": 3, "nome": "Mario3", "dataCadastro": "18/04/2015"},
-        {"id": 4, "nome": "Mario4", "dataCadastro": "01/08/2019"},
-        ]
+    {"id": 0, "nome": "João Gustavo", "dataCadastro": "10/02/2004"},
+    {"id": 1, "nome": "Mario1", "dataCadastro": "06/05/2019"},
+    {"id": 2, "nome": "Mario2", "dataCadastro": "14/02/2012"},
+    {"id": 3, "nome": "Mario3", "dataCadastro": "18/04/2015"},
+    {"id": 4, "nome": "Mario4", "dataCadastro": "01/08/2019"},
+    ]
 
-
-
+export let clientIndex = 0
 
 export function cleanBodyCard(cardEl){
     while (cardEl.firstChild) {
@@ -33,8 +40,31 @@ export function setInitialClientValue(idEl, nameEl, dataCadastroEl, clientList, 
     dataCadastroEl.value = clientList[value]["dataCadastro"]
 }
 
-export function moveClientList(idEl, nameEl, dataCadastroEl, clientList, actualClient, nextClient){
-    cleanAndCloseToAddClient(nameEl, dataCadastroEl)
+function moveAtList(listElements, listValues, index, isNext){
+    if(isNext===true && index+1<listValues.length){
+        index+=1
+        for(let item of listElements){
+            item.value = listValues[index][item.id]
+        }
+        return index
+    }
+    else if(isNext===true && index-1>=0){
+        index-=1
+        for(let item of listElements){
+            item.value = listValues[index][item.id]
+        }
+        return index
+    }
+    else{
+        alert('Fim da lista')
+    }
+}
+
+export function moveClientList(clientList, actualClient, nextClient){
+    const idInput = document.querySelector("#identifier")
+    const nomeInput = document.querySelector("#name")
+    const dataInput = document.querySelector("#date")
+    cleanAndCloseToAddClient(nomeInput, dataInput)
     if(actualClient+1 >= clientList.length && nextClient === true){
         alert('Fim da lista de clientes')
     }
@@ -48,10 +78,9 @@ export function moveClientList(idEl, nameEl, dataCadastroEl, clientList, actualC
         else{
             actualClient--
         }
-        
-        idEl.value = clientList[actualClient]['id']
-        nameEl.value = clientList[actualClient]['nome']
-        dataCadastroEl.value = clientList[actualClient]['dataCadastro']  
+        idInput.value = clientList[actualClient]['id']
+        nomeInput.value = clientList[actualClient]['nome']
+        dataInput.value = clientList[actualClient]['dataCadastro']  
     }
     return actualClient
 }
