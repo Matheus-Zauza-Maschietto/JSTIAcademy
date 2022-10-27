@@ -1,4 +1,4 @@
-import {autenticator} from './autentication.js'
+
 
 window.onload = function(){
     fetch('./json/infos.json')

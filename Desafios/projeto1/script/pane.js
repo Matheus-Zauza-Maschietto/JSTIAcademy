@@ -122,7 +122,7 @@ window.onload = function(){
         cleanCardBody(cardTable)
 
         // CREATE CARD
-        CreateRequestCard(cardTable, requests, )
+        CreateRequestCard(cardTable, requests, saveLastData)
 
         // SELECT CLIENT NAME
         selectClientById(clients)

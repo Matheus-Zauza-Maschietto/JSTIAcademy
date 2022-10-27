@@ -163,6 +163,7 @@ export function CreateRequestCard(bodyDiv, requestList, lastUpdate){
             input.setAttribute("type","text")
             input.setAttribute("name","clientIdentifierRequest")
             input.setAttribute("id","clientIdentifierRequest")
+            console.log(lastUpdate)
             input.value = lastUpdate['idClient']
         label.appendChild(input)
         divMae.appendChild(label)
