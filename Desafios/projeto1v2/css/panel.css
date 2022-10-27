@@ -1,0 +1,175 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root{
+    --cor1: #030E28;
+    --cor2: #2C60E1;
+    --cor3: #E5ECFE;
+    --cor4: #FFF;
+}
+
+.flex{
+    display: flex;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.center{
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    background-color: var(--cor1);
+    height: 100vh;
+    width: clamp(200px, 25vw, 350px);
+    z-index: 1;
+}
+
+nav{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+li{
+    align-items: center;
+    text-decoration: none;
+    color: var(--cor4);
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+}
+
+.menu ul{
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+li{
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    list-style: none;
+    transition-duration: 0.5s;
+}
+
+li:hover{
+    background-color: var(--cor4);
+    transition-duration: 0.7s;
+    color: var(--cor2);
+    transform: scale(1.1);
+}
+
+#logout{
+    transition-duration: 0.5s;
+    background: none;
+    color: var(--cor3);
+    border: none;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+#logout span{
+    font-size: 34px;
+}
+
+#logout:hover{
+    transition-duration: 0.5s;
+    color: var(--cor2);
+}
+
+main{
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    background-color: var(--cor3);
+    position: absolute;
+    z-index: 0;
+}
+
+.card{
+    position: relative;
+    color: var(--cor4);
+    background-color: var(--cor1);
+    height: auto;
+    width: clamp(300px, 40vw, 450px);
+    align-items: center;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    padding: 15px 0;
+    transform: translateY(100px);
+    border-radius: 10px;
+}
+
+.header{
+    width: 90%;
+    justify-content: space-between;
+}
+
+.closeCard{
+    font-size: 23px;
+}
+
+.card label{
+    width: 80%;
+    padding: 10px 0;
+}
+
+.card label input{
+    border: none;
+    height: 30px;
+    margin: 6px 0;
+    border-radius: 5px;
+    background-color: rgb(231, 241, 250);
+    color: black;
+}
+
+.card label input:focus{
+    outline: none;
+    box-shadow: 0 0 5px var(--cor3);
+}
+
+.buttons{
+    width: 80%;
+    justify-content: space-between;
+}
+
+.buttons input, .buttons button{
+    height: 40px;
+}
+
+.buttons .NextBack button{
+    width: 35px;
+    font-size: 20px;
+    font-weight: 900;
+}
+.buttons .NextBack button, .functionalities input{
+    margin: 0 10px;
+    background-color: var(--cor1);
+    color: var(--cor3);
+    border: 1px solid var(--cor3);
+    border-radius: 10px;
+    transition-duration: 0.3s;
+}
+
+.buttons .functionalities input{
+    width: 90px;
+    font-size: 17px;
+}
+
+.buttons .NextBack button:hover, .functionalities input:hover{
+    background-color: var(--cor3);
+    color: var(--cor2);
+    transition-duration: 0.3s;
+}
+

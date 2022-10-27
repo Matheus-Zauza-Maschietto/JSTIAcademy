@@ -5,6 +5,14 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.flex{
+    display: flex;
+}
+
+.column{
+    flex-direction: column;
+}
+
 main{
     position: relative;
 }
@@ -18,13 +26,7 @@ li{
     cursor: pointer;
 }
 
-.flex{
-    display: flex;
-}
 
-.column{
-    flex-direction: column;
-}
 
 .menu{
     height: 100vh;
@@ -52,11 +54,7 @@ li{
 li:hover{
     background-color: white;
     transition-duration: 1s;
-}
-
-li:hover{
     color: black;
-    
 }
 
 #interfaceBody{
