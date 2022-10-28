@@ -35,13 +35,13 @@ window.onload = function(){
         let backClient = document.querySelector("#backClient")
         backClient.addEventListener('click', function(){
             isAddingNewClient = false
-            actualIdClient = moveClientList(idInput, nomeInput, dataInput, clients, actualIdClient, false)
+            actualIdClient = moveClientList(clients, actualIdClient, false)
         })
         //NEXT
         let nextClient = document.querySelector("#nextClient")
         nextClient.addEventListener('click', function(){
             isAddingNewClient = false
-            actualIdClient = moveClientList(idInput, nomeInput, dataInput, clients, actualIdClient, true) 
+            actualIdClient = moveClientList( clients, actualIdClient, true) 
         })
 
         // ADD

@@ -23,25 +23,6 @@ window.onload = function(){
             player.style.top = `${top}px`
         }
         }
-        // switch (e.key){
-        //     case "ArrowRight":
-        //         left+=10
-        //         player.style.left = `${left}px`
-
-        //     case "ArrowLeft":
-        //         left-=10
-        //         player.style.left = `${left}px`
-
-        //     case "ArrowDown":
-        //         top+=10
-        //         player.style.top = `${top}px`
-
-        //     case "ArrowUp":
-        //         top-=10
-        //         player.style.top = `${top}px`
-        //     }
-        //};
-
     
     x.addEventListener('change', function(){
         player.style.left = x.value+'px'
@@ -52,3 +33,4 @@ window.onload = function(){
         top = y.value
     })
 }
+

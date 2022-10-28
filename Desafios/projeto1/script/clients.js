@@ -1,19 +1,19 @@
 
-// export let clients = [
-//         {"id": 0, "nome": "João Gustavo", "dataCadastro": "10/02/2004"},
-//         {"id": 1, "nome": "Mario1", "dataCadastro": "06/05/2019"},
-//         {"id": 2, "nome": "Mario2", "dataCadastro": "14/02/2012"},
-//         {"id": 3, "nome": "Mario3", "dataCadastro": "18/04/2015"},
-//         {"id": 4, "nome": "Mario4", "dataCadastro": "01/08/2019"},
-//         ]
-
 export let clients = [
-    {"id": 0, "nome": "João Gustavo", "dataCadastro": "10/02/2004"},
-    {"id": 1, "nome": "Mario1", "dataCadastro": "06/05/2019"},
-    {"id": 2, "nome": "Mario2", "dataCadastro": "14/02/2012"},
-    {"id": 3, "nome": "Mario3", "dataCadastro": "18/04/2015"},
-    {"id": 4, "nome": "Mario4", "dataCadastro": "01/08/2019"},
-    ]
+        {"id": 0, "nome": "João Gustavo", "dataCadastro": "10/02/2004"},
+        {"id": 1, "nome": "Mario1", "dataCadastro": "06/05/2019"},
+        {"id": 2, "nome": "Mario2", "dataCadastro": "14/02/2012"},
+        {"id": 3, "nome": "Mario3", "dataCadastro": "18/04/2015"},
+        {"id": 4, "nome": "Mario4", "dataCadastro": "01/08/2019"},
+        ]
+
+// export let clients = [
+//     {"id": 0, "nome": "João Gustavo", "dataCadastro": "10/02/2004"},
+//     {"id": 1, "nome": "Mario1", "dataCadastro": "06/05/2019"},
+//     {"id": 2, "nome": "Mario2", "dataCadastro": "14/02/2012"},
+//     {"id": 3, "nome": "Mario3", "dataCadastro": "18/04/2015"},
+//     {"id": 4, "nome": "Mario4", "dataCadastro": "01/08/2019"},
+//     ]
 
 export let clientIndex = 0
 
