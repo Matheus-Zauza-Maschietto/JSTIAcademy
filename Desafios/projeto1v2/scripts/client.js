@@ -26,11 +26,12 @@ export let clientList = [
     },
 ]
 
-export let clientIndex = 0
+let clientIndex = 0
 
-export function nextClient(funcToNext, listInputsClass, listObjects, listIndex, isNext){
+export function nextClient(moveToList, listInputsClass, listObjects, listIndex){
     document.querySelector('#nextClient').addEventListener('click', function(){
-        funcToNext(listInputsClass, listObjects, listIndex, isNext)
+        console.log(clientIndex)
+        clientIndex = moveToList(listInputsClass, listObjects, clientIndex, true)
         } 
     )
 }

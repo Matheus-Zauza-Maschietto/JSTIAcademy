@@ -2,7 +2,7 @@ export function moveToList(listInputsClass, listObjects, listIndex, isNext){
     if(isNext===true){
         if(listIndex+1<listObjects.length){
             listIndex+=1
-            placeValue(document.querySelectorAll(`.${listInputsClass}`), listObjects, listIndex)   
+            placeValue(listInputsClass, listObjects, listIndex)   
             return listIndex
         }
         alert('Fim da lista')
@@ -10,12 +10,11 @@ export function moveToList(listInputsClass, listObjects, listIndex, isNext){
     else if(isNext===false){
         if(listIndex>=0){
             listIndex-=1
-            placeValue(document.querySelectorAll(`.${listInputsClass}`), listObjects, listIndex)
+            placeValue(listInputsClass, listObjects, listIndex)
             return listIndex
         }
         alert('Fim da lista')
     }
-
 }
 
 export function placeValue(listInputsClass, listObjects, listIndex,){
