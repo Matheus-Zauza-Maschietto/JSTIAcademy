@@ -8,13 +8,14 @@ export function moveToList(listInputsClass, listObjects, listIndex, isNext){
         alert('Fim da lista')
     }
     else if(isNext===false){
-        if(listIndex>=0){
+        if(listIndex-1>=0){
             listIndex-=1
             placeValue(listInputsClass, listObjects, listIndex)
             return listIndex
         }
         alert('Fim da lista')
     }
+    return listIndex
 }
 
 export function placeValue(listInputsClass, listObjects, listIndex,){
@@ -42,3 +43,22 @@ export function closeWindow(windowId, buttonId){
     })
 }
 
+export function saveValue(listInputsClass, listObjects, listIndex, objectModule){
+    if(listObjects.length == listIndex){
+        for(let el of document.querySelectorAll(`.${listInputsClass}`)){
+            objectModule[el.id] = el.value
+        }
+        listObjects.push(objectModule)
+    }
+    else{
+        alert("Click em adicionar para poder adicionar um novo cadastro")
+    }
+
+}
+
+export function newValue(listInputsClass, objectModule, index){
+    for(let el of document.querySelectorAll(`.${listInputsClass}`)){
+        el.value = objectModule[el.id]
+    }
+    return index
+}

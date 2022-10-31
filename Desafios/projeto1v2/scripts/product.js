@@ -16,20 +16,21 @@ export let productList = [
         'descricaoProduct': 'Mouse',
         'precoProduct': 25,
         'quantidadeProduct': 26,
-    },
-    {
-        'idProduct': 3,
-        'descricaoProduct': 'Monitor',
-        'precoProduct': 650,
-        'quantidadeProduct': 2,
-    },
-    {
-        'idProduct': 4,
-        'descricaoProduct': 'Impressora',
-        'precoProduct': 370,
-        'quantidadeProduct': 7,
-    },
+    }
 ]
 
-export let productIndex = 0
+let productIndex = 0
 
+export function nextProduct(moveToList, listInputsClass, listObjects){
+    document.querySelector('#nextProduct').addEventListener('click', function(){
+        productIndex = moveToList(listInputsClass, listObjects, productIndex, true)
+        } 
+    )
+}
+
+export function backProduct(moveToList, listInputsClass, listObjects){
+    document.querySelector('#backProduct').addEventListener('click', function(){
+        productIndex = moveToList(listInputsClass, listObjects, productIndex, false)
+        } 
+    )
+}
