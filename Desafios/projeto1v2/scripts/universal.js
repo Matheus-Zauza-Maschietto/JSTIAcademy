@@ -49,6 +49,7 @@ export function saveValue(listInputsClass, listObjects, listIndex, objectModule)
             objectModule[el.id] = el.value
         }
         listObjects.push(objectModule)
+        alert('Cadastro adicionado com sucesso')
     }
     else{
         alert("Click em adicionar para poder adicionar um novo cadastro")
@@ -61,4 +62,16 @@ export function newValue(listInputsClass, objectModule, index){
         el.value = objectModule[el.id]
     }
     return index
+}
+
+export function openInputs(listOfIdsToOpen){
+    for(let item of listOfIdsToOpen){
+        document.getElementById(item).removeAttribute('readonly')
+    }
+}
+
+export function closeInputs(listOfIdsToOpen){
+    for(let item of listOfIdsToOpen){
+        document.getElementById(item).setAttribute('readonly','')
+    }
 }

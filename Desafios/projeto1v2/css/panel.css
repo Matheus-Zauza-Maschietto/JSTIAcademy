@@ -183,7 +183,7 @@ main{
     transition-duration: 0.3s;
 }
 
-#nextClient span{
+#nextClient span, #nextProduct span{
     transform: rotate(180deg);
 }
 
@@ -205,3 +205,4 @@ main{
 .list-request-inputs input:nth-child(4){
     width: 15%;
 }
+

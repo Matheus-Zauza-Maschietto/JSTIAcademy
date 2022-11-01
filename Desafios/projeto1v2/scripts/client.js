@@ -16,36 +16,54 @@ export let clientList = [
     }
 ]
 
-let clientIndex = 0
+export let clientIndex = 0
 
-export function nextClient(moveToList, listInputsClass, listObjects){
+let editableInputs = ['nameClient']
+
+export function nextClient(moveToList, listInputsClass, listObjects, closeFunc){
     document.querySelector('#nextClient').addEventListener('click', function(){
+        if(clientIndex != clientList.length){
+           closeFunc(editableInputs) 
+        }
         clientIndex = moveToList(listInputsClass, listObjects, clientIndex, true)
         } 
     )
 }
 
-export function backClient(moveToList, listInputsClass, listObjects){
+export function backClient(moveToList, listInputsClass, listObjects, closeFunc){
     document.querySelector('#backClient').addEventListener('click', function(){
+        closeFunc(editableInputs)
         clientIndex = moveToList(listInputsClass, listObjects, clientIndex, false)
         } 
     )
 }
 
-export function newClient(listInputsClass, newValueFunc){
+export function newClient(listInputsClass, newValueFunc, openFunc){
     document.querySelector('#Novo').addEventListener('click', function(){
+        openFunc(editableInputs)
         let objectClient = {
             'idClient': clientList.length,
             'nameClient': '',
             'dateClient': getActualDate(),
         }
         clientIndex = newValueFunc(listInputsClass, objectClient, clientList.length)
-        console.log(clientIndex)
         } 
     )
+}
+
+export function saveClient(saveValue, listInputsClass, listObjects){
+    let object = {
+        'idClient': '',
+        'nameClient': '',
+        'dateClient': '',
+    } 
+    document.querySelector('#Salvar').addEventListener('click', function(){
+        saveValue(listInputsClass, listObjects, clientIndex, object)
+    })
 }
 
 function getActualDate(){
     let dataAtual = new Date()
     return `${dataAtual.getDay()}/${dataAtual.getMonth()+1}/${dataAtual.getFullYear()}`
 }
+
