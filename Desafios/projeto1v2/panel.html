@@ -110,23 +110,22 @@
             </div>
             <label for="idClientRequest" class="flex column">
                 Código do Cliente
-                <input type="text" name="idClientRequest" id="idClientRequest"></label>
+                <input type="text" name="idClientRequest" id="idClientRequest" class="inputsRequestClient"></label>
             <label for="nameClientRequest" class="flex column">
-                Descrição
-                <input type="text" name="nameClient" id="nameClient" readonly="" class="clientRequest">
+                Nome do Cliente
+                <input type="text" name="nameClient" id="nameClient" readonly="" class="clientRequest inputsRequestClient">
             </label>
             <label for="requestIdProduct" class="flex column">
                 Localizar Produto
                 <div class="list-request-inputs flex">
-                    <input type="text" name="requestIdProduct" id="requestIdProduct" placeholder="ID">
-                    <input type="text" name="descricaoProduct" id="descricaoProduct" readonly="" class="productRequest">
-                    <input type="text" name="precoProduct" id="precoProduct" readonly="" class="productRequest">
-                    <input type="text" name="" id="qntProduct" placeholder="Qnt desejada">
+                    <input type="text" name="requestIdProduct" id="requestIdProduct" placeholder="ID" class=" inputRequestProduct">
+                    <input type="text" name="descricaoProduct" id="descricaoProduct" readonly="" class="productRequest inputRequestProduct">
+                    <input type="text" name="precoProduct" id="precoProduct" readonly="" class="productRequest inputRequestProduct">
+                    <input type="text" name="" id="qntProduct" placeholder="Qnt desejada" class=" inputRequestProduct">
                     
                 </div>
-                <input type="button" name="nameClient" id="nameClient" value="Lançar pedido">
+                <input type="button" name="LaunchRequest" id="LaunchRequest" value="Lançar pedido">
             </label>
-            <div>
                 <table>
                     <thead>
                         <tr>
@@ -151,7 +150,6 @@
                         </tr>
                     </tfoot>
                 </table>
-            </div>
         </div>
     </main>
 </body>

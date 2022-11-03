@@ -19,7 +19,7 @@ export function moveToList(listInputsClass, listObjects, listIndex, isNext){
 }
 
 export function placeValue(listInputsClass, listObjects, listIndex,){
-    for(let el of document.querySelectorAll(`.${listInputsClass}`)){
+    for(let el of document.getElementsByClassName(listInputsClass)){
         el.value = listObjects[listIndex][el.id]
     }
 }

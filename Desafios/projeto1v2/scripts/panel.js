@@ -1,6 +1,6 @@
 import {clientList, nextClient, backClient, newClient, saveClient} from './client.js'
 import {productList, nextProduct, backProduct, newProduct, saveProduct} from './product.js'
-import {getValuesToRequest} from './request.js'
+import {getValuesToRequest, launchRequest} from './request.js'
 import {moveToList, cleanWindow, showWindow, closeWindow, placeValue, saveValue, newValue, closeInputs, openInputs} from './universal.js'
 
 //universal functions
@@ -24,21 +24,18 @@ placeValue('productInputs', productList, 0)
 nextProduct(moveToList, 'productInputs', productList, closeInputs)
 backProduct(moveToList, 'productInputs', productList, closeInputs)
 newProduct('productInputs', newValue, openInputs)
-saveProduct(saveValue, 'productInputs', productList)
+saveProduct(saveValue, 'productInputs', productList, ['precoProduct', 'quantidadeProduct'])
 
 // ------------------------------------------------------------------------------------------------------------
 // request
 showWindow('request-screen', 'request')
 closeWindow('request-screen', "closeCardRequest")
-getValuesToRequest(placeValue, clientList,'clientRequest', 'idClientRequest', 'Cliente não encontrado')
-getValuesToRequest(placeValue, productList,'productRequest', 'requestIdProduct', 'Produto não encontrado')
+getValuesToRequest(placeValue, clientList,'clientRequest', 'idClientRequest', 'Cliente não encontrado', 'inputsRequestClient')
+getValuesToRequest(placeValue, productList,'productRequest', 'requestIdProduct', 'Produto não encontrado', 'inputRequestProduct')
+launchRequest(productList)
+
 
 // ------------------------------------------------------------------------------------------------------------
-
-// BUGS TO SOLVE:
-//  SOME INPUTS CANNOT RECIVE NaN VALUES
-
 // TO DO:
-//     VERIFY ITENS IF THAT QNT HAS IN STOCK 
+//     MAKE SUM OF ITENS
 //     VERIFY IF ITEM ALREADY AT ABLE 
-//     TANSFORM IN TOLOCALESTRING

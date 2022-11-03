@@ -55,7 +55,7 @@ export function newProduct(listInputsClass, newValueFunc, openFunc){
     )
 }
 
-export function saveProduct(saveValue, listInputsClass, listObjects){
+export function saveProduct(saveValue, listInputsClass, listObjects, inputsToClean){
     let object = {
         'idProduct': '',
         'descricaoProduct': '',
@@ -63,12 +63,14 @@ export function saveProduct(saveValue, listInputsClass, listObjects){
         'quantidadeProduct': '',
     } 
     document.querySelector('#SalvarProduct').addEventListener('click', function(){
-        saveValue(listInputsClass, listObjects, productIndex, object)
-    })
-}
-
-export function checkTypeInputs(){
-    document.querySelector('#SalvarProduct').addEventListener('outfocus', function(){
-        saveValue(listInputsClass, listObjects, productIndex, object)
+        if((!isNaN(Number(document.querySelector('#precoProduct').value)) && !isNaN(Number(document.querySelector('#quantidadeProduct').value)))){
+            saveValue(listInputsClass, listObjects, productIndex, object)
+        }
+        else{
+            alert('Valores invalidos')
+            for(let inputId of inputsToClean){
+                 document.querySelector('#'+inputId).value = ''
+            }
+        }
     })
 }
