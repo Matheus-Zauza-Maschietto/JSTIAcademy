@@ -2,6 +2,7 @@ import {clientList, nextClient, backClient, newClient, saveClient} from './clien
 import {productList, nextProduct, backProduct, newProduct, saveProduct} from './product.js'
 import {getValuesToRequest, launchRequest} from './request.js'
 import {moveToList, cleanWindow, showWindow, closeWindow, placeValue, saveValue, newValue, closeInputs, openInputs} from './universal.js'
+import {logout} from './logout.js'
 
 //universal functions
 cleanWindow()
@@ -35,7 +36,7 @@ getValuesToRequest(placeValue, productList,'productRequest', 'requestIdProduct',
 launchRequest(productList)
 
 
+
 // ------------------------------------------------------------------------------------------------------------
-// TO DO:
-//     MAKE SUM OF ITENS
-//     VERIFY IF ITEM ALREADY AT ABLE 
+// logout
+logout()
