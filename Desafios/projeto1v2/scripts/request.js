@@ -25,7 +25,7 @@ export function launchRequest(listInputsProducts){
 
             if(listInputsProducts[id.value]['quantidadeProduct'] >= qnt.value){
                 if(checkIfIsUnic(getListOfCellsFromTable(0), id.value)){
-                    createTableRow(id.value, desc.value, preco.value, qnt.value)
+                    createTableRow(id.value, listInputsProducts[id.value]["descricaoProduct"], listInputsProducts[id.value]["precoProduct"], qnt.value)
                     document.getElementById('TotalValue').textContent = setToBrl(sum(getListOfCellsFromTable(4)))
                     alert('Item adicionado com sucesso')
                 }
